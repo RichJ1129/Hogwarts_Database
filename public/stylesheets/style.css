@@ -18,5 +18,8 @@ header {
 }
 
 h2 {
-  color: blue;
+  background: inherit;
+  background-clip: text;
+  color: inherit;
+  filter: invert(1);
 }
