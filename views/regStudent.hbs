@@ -1,0 +1,31 @@
+<h2>Register Student</h2>
+<form id="newStudent" action="/register_student" method="post">
+	<div>
+		<label class="inputLabel">First Name (Required):</label>
+		<input class="userInput" type="text" name="first_name" id="first_name">
+	</div>
+	<br />
+	<div>
+		<label class="inputLabel">Last Name:</label>
+		<input class="userInput" type="text" name="last_name" id="last_name">
+	</div>
+	<br />
+	<div>
+		<label class="inputLabel">Age (Required):</label>
+		<input class="userInput" type="number" name="age" id="age">
+	</div>
+	<br />
+	<div>
+		<label class="inputLabel">School:</label>
+        <select name="school">
+            <option value="" selected="selected">Select Country</option>
+            <option value="Hogwarts">Hogwarts School of Witchcraft and Wizardry</option>
+			<option value="Beauxbatons">Beauxbatons Academy of Magic</option>
+			<option value="Durmstrang">Durmstrang Institute</options>
+        </select>
+	</div>
+	<br />
+	<div>
+		<input type="submit" name="RegisterStudent" value="RegisterStudent" id="postNewStudent">
+	</div>
+</form>
