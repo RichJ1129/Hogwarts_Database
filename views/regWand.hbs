@@ -1,0 +1,33 @@
+<h2>Register Wand</h2>
+<form id="newWand" action="/register_wand" method="post">
+	<div>
+		<label class="inputLabel">Owner's First Name (Required):</label>
+		<input class="userInput" type="text" name="first_name" id="first_name">
+	</div>
+	<br />
+	<div>
+		<label class="inputLabel">Owner's Last Name (Required):</label>
+		<input class="userInput" type="text" name="last_name" id="last_name">
+	</div>
+	<br />
+	
+	<div>
+		<label class="inputLabel">Wand Length:</label>
+		<input class="userInput" type="number" name="wand_length" id="wand_length">
+	</div>
+	<br />
+	<div>
+		<label class="inputLabel">Wand Core:</label>
+        <select class="userInput" name="wand_core" id="wand_core">
+            <option value="" selected="selected">Select Core Type:</option>
+            <option value="Dragon Heartstring">Dragon Heartstring</option>
+			<option value="Phoenix Feather">Phoenix Feather</option>
+			<option value="Unicorn Hair">Unicorn Hair</option>
+			
+        </select>
+	</div>
+	<br />
+	<div>
+		<input type="submit" name="Register Wand" value="Register Wand" id="postNewWand">
+	</div>
+</form>
