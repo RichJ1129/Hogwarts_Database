@@ -18,9 +18,7 @@ header {
 }
 
 h2 {
-  background: inherit;
-  background-clip: text;
-  color: inherit;
+  color: white;
   position: center;
 }
 
