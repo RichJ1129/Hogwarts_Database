@@ -7,6 +7,9 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var regStudentRouter = require('./routes/regStudent');
 var regProfessorRouter = require('./routes/regProfessor');
+var regWandRouter = require('./routes/regWand');
+var regPetRouter = require('./routes/regPet');
+
 var viewProfessorRouter = require('./routes/viewProfessor');
 var usersRouter = require('./routes/users');
 
@@ -25,6 +28,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/regStudent', regStudentRouter);
 app.use('/regProfessor', regProfessorRouter);
+app.use('/regPet', regPetRouter);
+app.use('/regWand', regWandRouter);
+
 app.use('/viewProfessor', viewProfessorRouter);
 app.use('/users', usersRouter);
 
