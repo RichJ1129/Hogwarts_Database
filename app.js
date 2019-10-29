@@ -21,6 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/expelStudent', indexRouter);
+app.use('/classEnrollment', indexRouter);
 app.use('/dismissProfessor', indexRouter);
 app.use('/regStudent', indexRouter);
 app.use('/regProfessor', indexRouter);

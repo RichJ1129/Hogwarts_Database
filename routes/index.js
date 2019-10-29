@@ -10,6 +10,10 @@ router.get('/expelStudent', function(req, res, next) {
   res.render('expelStudent', { title: 'Hogwart\'s HeadMaster Database' });
 });
 
+router.get('/classEnrollment', function(req, res, next) {
+  res.render('classEnrolment', { title: 'Hogwart\'s HeadMaster Database' });
+});
+
 router.get('/dismissProfessor', function(req, res, next) {
   res.render('dismissProfessor', { title: 'Hogwart\'s HeadMaster Database' });
 });
