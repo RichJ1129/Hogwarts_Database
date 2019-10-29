@@ -6,6 +6,14 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Hogwart\'s HeadMaster Database' });
 });
 
+router.get('/expelStudent', function(req, res, next) {
+  res.render('expelStudent', { title: 'Hogwart\'s HeadMaster Database' });
+});
+
+router.get('/dismissProfessor', function(req, res, next) {
+  res.render('dismissProfessor', { title: 'Hogwart\'s HeadMaster Database' });
+});
+
 router.get('/regStudent', function(req, res, next) {
   res.render('regStudent', { title: 'Hogwart\'s HeadMaster Database' });
 });
@@ -36,6 +44,22 @@ router.get('/viewPets', function(req, res, next) {
 
 router.get('/viewProfessor', function(req, res, next) {
   res.render('viewProfessor', { title: 'Hogwart\'s HeadMaster Database' });
+});
+
+router.get('/updateStudent', function(req, res, next) {
+  res.render('updateStudent', { title: 'Hogwart\'s HeadMaster Database' });
+});
+
+router.get('/updateWand', function(req, res, next) {
+  res.render('updateWand', { title: 'Hogwart\'s HeadMaster Database' });
+});
+
+router.get('/updatePets', function(req, res, next) {
+  res.render('updatePets', { title: 'Hogwart\'s HeadMaster Database' });
+});
+
+router.get('/updateProfessor', function(req, res, next) {
+  res.render('updateProfessor', { title: 'Hogwart\'s HeadMaster Database' });
 });
 
 
