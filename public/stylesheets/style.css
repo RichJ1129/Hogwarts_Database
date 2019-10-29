@@ -24,7 +24,8 @@ h2 {
 
 form {
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-	position: center;
+	text-align: left;
+	padding: 30%;
 	background-color: #4E5151;
 	text-color: #FFFFFF;
 }
