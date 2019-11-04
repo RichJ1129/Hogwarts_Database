@@ -30,3 +30,9 @@ form {
 	background-color: #4E5151;
 	text-color: white;
 }
+
+tbody {
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	background-color: #4E5151;
+	text-color: white;
+}
