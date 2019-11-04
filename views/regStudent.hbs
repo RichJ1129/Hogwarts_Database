@@ -1,47 +1,95 @@
-<h2>Register Student</h2>
-<form id="newStudent" action="/register_student" method="post">
-	<div>
-		<label class="inputLabel">First Name (Required):</label>
-		<input class="userInput" type="text" name="first_name" id="first_name">
-	</div>
-	<br />
-	<div>
-		<label class="inputLabel">Last Name:</label>
-		<input class="userInput" type="text" name="last_name" id="last_name">
-	</div>
-	<br />
-	<div>
-		<label class="inputLabel">Age (Required):</label>
-		<input class="userInput" type="number" name="age" id="age">
-	</div>
-	<br />
-	<div>
-		<label class="inputLabel">School:</label>
-        <select class="userInput" name="school" id="school">
-            <option value="" selected="selected">Select School</option>
-            <option value="Hogwarts">Hogwarts School of Witchcraft and Wizardry</option>
-			<option value="Beauxbatons">Beauxbatons Academy of Magic</option>
-			<option value="Durmstrang">Durmstrang Institute</option>
-        </select>
-	</div>
-	<br />
-	<div>
-		<label class="inputLabel">House:</label>
-        <select class="userInput" name="house" id="house>
-            <option value="" selected="selected">Select House</option>
-            <option value="Gryffindor">Gryffindor - Hogwarts</option>
-			<option value="Hufflepuff">Hufflepuff - Hogwarts</option>
-			<option value="Ravenclaw">Ravenclaw - Hogwarts</option>
-			<option value="Slytherin">Slytherin - Hogwarts</option>
-			<option value="Bellefeuille">Bellefeuille - Beauxbatons</option>
-			<option value="Ombrelune">Ombrelune - Beauxbatons</option>
-			<option value="Papillonlisse">Papillonlisse - Beauxbatons</option>
-			
-        </select>
-	</div>
-	<br />
-	
-	<div>
-		<input type="submit" name="Register Student" value="Register Student" id="postNewStudent">
-	</div>
-</form>
+
+<div class="container" class="regStudentForm">
+    <h2 class="text-center">Register Student</h2>
+    <!--<form id="newStudent" action="/register_student" method="post">-->
+    <!--	<div>-->
+    <!--		<label class="inputLabel">First Name (Required):</label>-->
+    <!--		<input class="userInput" type="text" name="first_name" id="first_name">-->
+    <!--	</div>-->
+    <!--	<br />-->
+    <!--	<div>-->
+    <!--		<label class="inputLabel">Last Name:</label>-->
+    <!--		<input class="userInput" type="text" name="last_name" id="last_name">-->
+    <!--	</div>-->
+    <!--	<br />-->
+    <!--	<div>-->
+    <!--		<label class="inputLabel">Age (Required):</label>-->
+    <!--		<input class="userInput" type="number" name="age" id="age">-->
+    <!--	</div>-->
+    <!--	<br />-->
+    <!--	<div>-->
+    <!--		<label class="inputLabel">School:</label>-->
+    <!--        <select class="userInput" name="school" id="school">-->
+    <!--            <option value="" selected="selected">Select School</option>-->
+    <!--            <option value="Hogwarts">Hogwarts School of Witchcraft and Wizardry</option>-->
+    <!--			<option value="Beauxbatons">Beauxbatons Academy of Magic</option>-->
+    <!--			<option value="Durmstrang">Durmstrang Institute</option>-->
+    <!--        </select>-->
+    <!--	</div>-->
+    <!--	<br />-->
+    <!--	<div>-->
+    <!--		<label class="inputLabel">House:</label>-->
+    <!--        <select class="userInput" name="house" id="house>-->
+    <!--            <option value="" selected="selected">Select House</option>-->
+    <!--            <option value="Gryffindor">Gryffindor - Hogwarts</option>-->
+    <!--			<option value="Hufflepuff">Hufflepuff - Hogwarts</option>-->
+    <!--			<option value="Ravenclaw">Ravenclaw - Hogwarts</option>-->
+    <!--			<option value="Slytherin">Slytherin - Hogwarts</option>-->
+    <!--			<option value="Bellefeuille">Bellefeuille - Beauxbatons</option>-->
+    <!--			<option value="Ombrelune">Ombrelune - Beauxbatons</option>-->
+    <!--			<option value="Papillonlisse">Papillonlisse - Beauxbatons</option>-->
+    <!--			-->
+    <!--        </select>-->
+    <!--	</div>-->
+    <!--	<br />-->
+    <!--	-->
+    <!--	<div>-->
+    <!--		<input type="submit" name="Register Student" value="Register Student" id="postNewStudent">-->
+    <!--	</div>-->
+    <!--</form>-->
+
+    <form id="newStudent" action="/register_student" method="post">
+        <div class="form-row">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="First name (Required)">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Last name (Required)">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label for="studentAge">Age</label>
+                <input type="number" class="form-control" id="studentAge" placeholder="11" required>
+                <div class="invalid-feedback">
+                    Please Provide a valid age between 11-19.
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="schoolSelect">Select School</label>
+                <select class="form-control" id="schoolSelect">
+                    <option value="Hogwarts">Hogwarts School of Witchcraft and Wizardry</option>
+                    <option value="Beauxbatons">Beauxbatons Academy of Magic</option>
+                    <option value="Durmstrang">Durmstrang Institute</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="houseSelect">Select House</label>
+                <select class="form-control" id="houseSelect">
+                    <option value="Gryffindor">Gryffindor - Hogwarts</option>
+                    <option value="Hufflepuff">Hufflepuff - Hogwarts</option>
+                    <option value="Ravenclaw">Ravenclaw - Hogwarts</option>
+                    <option value="Slytherin">Slytherin - Hogwarts</option>
+                    <option value="Bellefeuille">Bellefeuille - Beauxbatons</option>
+                    <option value="Ombrelune">Ombrelune - Beauxbatons</option>
+                    <option value="Papillonlisse">Papillonlisse - Beauxbatons</option>
+                </select>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Register Student</button>
+
+    </form>
+</div>
