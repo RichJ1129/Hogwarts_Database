@@ -70,6 +70,15 @@ router.get('/removeStudentClass', function(req, res, next) {
   res.render('removeStudentClass', { title: 'Hogwart\'s HeadMaster Database' });
 });
 
+router.get('/createClass', function(req, res, next) {
+  res.render('createClass', { title: 'Hogwart\'s HeadMaster Database' });
+});
+
+router.get('/enrollStudent', function(req, res, next) {
+  res.render('enrollStudent', { title: 'Hogwart\'s HeadMaster Database' });
+});
+
+
 
 
 module.exports = router;
