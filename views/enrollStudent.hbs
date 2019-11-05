@@ -1,0 +1,20 @@
+<div class="container" class="enrollStudentForm">
+    <h2 class="text-center">Enroll a Student in a Class</h2>
+    <form id="enrollStudent" action="/enroll_student" method="post">
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+             <label for="studentSelect">Student</label>
+               <select class="form-control" id="student-select">
+                    <option value="">Select a Student</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="classSelect">Class</label>
+                <select class="form-control" id="classSelect">
+                    <option value="">Select a Class</option>
+                </select>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Enroll Student in Class</button>
+    </form>
+</div>
