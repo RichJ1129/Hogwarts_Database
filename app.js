@@ -30,7 +30,8 @@ app.use('/regWand', indexRouter);
 app.use('/viewWands', indexRouter);
 app.use('/viewStudent', indexRouter);
 app.use('/removeStudentClass', indexRouter);
-
+app.use('/createClass', indexRouter);
+app.use('/enrollStudent', indexRouter);
 
 app.use('/users', usersRouter);
 
