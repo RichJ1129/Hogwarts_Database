@@ -1,46 +1,40 @@
-<h2>Register Wand</h2>
-<form id="newWand" action="/register_wand" method="post">
-	<div>
-		<label class="inputLabel">Owner's First Name (Required):</label>
-		<input class="userInput" type="text" name="first_name" id="first_name">
-	</div>
-	<br />
-	<div>
-		<label class="inputLabel">Owner's Last Name (Required):</label>
-		<input class="userInput" type="text" name="last_name" id="last_name">
-	</div>
-	<br />
-	
-	<div>
-		<label class="inputLabel">Wand Length:</label>
-		<input class="userInput" type="number" name="wand_length" id="wand_length">
-	</div>
-	<br />
-	<div>
-		<label class="inputLabel">Wand Material:</label>
-        <select class="userInput" name="wand_material" id="wand_material">
-            <option value="" selected="selected">Select Material Type:</option>
-            <option value="acacia">Acacia</option>
-			<option value="cedar">Cedar</option>
-			<option value="elm">Elm</option>
-			<option value="red oak">Red Oak</option>
-			<option value="walnut">Walnut</option>			
-			
-        </select>
-	</div>
-	<br />
-	<div>
-		<label class="inputLabel">Wand Core:</label>
-        <select class="userInput" name="wand_core" id="wand_core">
-            <option value="" selected="selected">Select Core Type:</option>
-            <option value="Dragon Heartstring">Dragon Heartstring</option>
-			<option value="Phoenix Feather">Phoenix Feather</option>
-			<option value="Unicorn Hair">Unicorn Hair</option>
-			
-        </select>
-	</div>
-	<br />
-	<div>
-		<input type="submit" name="Register Wand" value="Register Wand" id="postNewWand">
-	</div>
-</form>
+<div class="container" class="regWandForm">
+    <h2 class="text-center">Register Wand</h2>
+    <form id="newWand" action="/register_wand" method="post">
+        <div class="form-row">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Owner's First name (Required)">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Owner's Last name (Required)">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label for="studentAge">Wand Length</label>
+                <input type="number" class="form-control" id="studentAge" placeholder="1.2" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label for="matSelect">Wand Material</label>
+                <select class="form-control" id="matSelect">
+                    <option value="Acacia">Acacia</option>
+                    <option value="Cedar">Cedar</option>
+                    <option value="Elm">Elm</option>
+                    <option value="Red Oak">Red Oak</option>
+                    <option value="Walnut">Walnut</option>
+                </select>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="coreSelect">Wand Core</label>
+                <select class="form-control" id="coreSelect" placeholder="Select Core Type">
+                    <option value="Dragon HeartString">Dragon HeartString</option>
+                    <option value="Phoenix Feather">Phoenix Feather</option>
+                    <option value="Unicorn Hair">Unicorn Hair</option>
+                </select>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Register Wand</button>
+    </form>
+</div>
