@@ -29,7 +29,7 @@ app.use('/regPet', indexRouter);
 app.use('/regWand', indexRouter);
 app.use('/viewWands', indexRouter);
 app.use('/viewStudent', indexRouter);
-app.use('/viewPets', indexRouter);
+app.use('/removeStudentClass', indexRouter);
 
 
 app.use('/users', usersRouter);

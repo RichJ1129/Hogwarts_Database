@@ -66,6 +66,10 @@ router.get('/updateProfessor', function(req, res, next) {
   res.render('updateProfessor', { title: 'Hogwart\'s HeadMaster Database' });
 });
 
+router.get('/removeStudentClass', function(req, res, next) {
+  res.render('removeStudentClass', { title: 'Hogwart\'s HeadMaster Database' });
+});
+
 
 
 module.exports = router;
