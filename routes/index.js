@@ -42,9 +42,9 @@ router.get('/regWand', function(req, res, next) {
 });
 
 /* GET view student page. */
-router.get('/viewStudent', function(req, res, next) {
-  res.render('viewStudent', { title: 'Hogwart\'s HeadMaster Database' });
-});
+// router.get('/viewStudent', function(req, res, next) {
+//   res.render('viewStudent', { title: 'Hogwart\'s HeadMaster Database' });
+// });
 
 /* GET view wand page. */
 router.get('/viewWand', function(req, res, next) {
