@@ -1,11 +1,11 @@
 var mysql = require('mysql');
-
+var aws = require('aws-sdk');
 
 var con = mysql.createConnection({
     connectionLimit : 10,
     host            : 'classmysql.engr.oregonstate.edu',
-    user            : 'cs340_josephri',
-    password        : '1233',
+    user            : process.env.user,
+    password        : process.env.password,
     database        : 'cs340_josephri'
 });
 
