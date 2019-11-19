@@ -8,15 +8,12 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-
-        </tr>
-        <tr>
-
-        </tr>
-        <tr>
-
-        </tr>
+        {{#each pet}}
+            <tr>
+                <td>{{petID}}</td>
+                <td>{{name}}</td>
+                <td>{{species}}</td>
+            </tr>
+        {{/each}}
         </tbody>
-    </table>
 </div>

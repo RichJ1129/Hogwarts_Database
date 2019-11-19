@@ -9,15 +9,14 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-
-        </tr>
-        <tr>
-
-        </tr>
-        <tr>
-
-        </tr>
+        {{#each wand}}
+            <tr>
+                <td>{{wID}}</td>
+                <td>{{length}}</td>
+                <td>{{material}}</td>
+                <td>{{core}}</td>
+            </tr>
+        {{/each}}
         </tbody>
     </table>
 </div>
