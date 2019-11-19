@@ -1,5 +1,4 @@
 var mysql = require('mysql');
-const aws = require('aws-sdk');
 
 
 var con = mysql.createConnection({
