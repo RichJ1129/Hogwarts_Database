@@ -41,26 +41,6 @@ router.get('/regWand', function(req, res, next) {
   res.render('regWand', { title: 'Hogwart\'s HeadMaster Database' });
 });
 
-/* GET view student page. */
-// router.get('/viewStudent', function(req, res, next) {
-//   res.render('viewStudent', { title: 'Hogwart\'s HeadMaster Database' });
-// });
-
-/* GET view wand page. */
-router.get('/viewWand', function(req, res, next) {
-  res.render('viewWand', { title: 'Hogwart\'s HeadMaster Database' });
-});
-
-/* GET view Pets page. */
-router.get('/viewPets', function(req, res, next) {
-  res.render('viewPets', { title: 'Hogwart\'s HeadMaster Database' });
-});
-
-/* GET view Professor page. */
-router.get('/viewProfessor', function(req, res, next) {
-  res.render('viewProfessor', { title: 'Hogwart\'s HeadMaster Database' });
-});
-
 /* GET update Student page. */
 router.get('/updateStudent', function(req, res, next) {
   res.render('updateStudent', { title: 'Hogwart\'s HeadMaster Database' });

@@ -3,28 +3,29 @@ module.exports = function(){
     var router = express.Router();
 
     function getStudent(res, mysql, context, done){
-        mysql.pool.query("SELECT student.student_id as sID, first_name as fname, last_name as lname, age AS ageStudent, school as stuSchool, house as stuHouse, pet as stuPet, wand as stuWand FROM student",
+        var sql = "SELECT wand_id as wID, wand.length as length, material as material, core as core FROM wand";
+        mysql.pool.query(sql,
             function(error, results, fields){
-            if(error){
-                res.write(JSON.stringify(error));
-                res.end();
-            }
-            context.students = results;
-            console.log(context.students);
-            done();
-        });
+                if(error){
+                    res.write(JSON.stringify(error));
+                    res.end();
+                }
+                context.wand = results;
+                console.log(context.wand);
+                done();
+            });
     }
 
     router.get('/', function(req, res){
         var callbackCount = 0;
         var context = { title: 'Hogwart\'s HeadMaster Database' };
-        context.jsscripts = ["deleteStudent.js"];
+        context.jsscripts = ["deleteWand.js"];
         var mysql = req.app.get('mysql');
         getStudent(res,mysql, context, done);
         function done(){
             callbackCount++;
             if(callbackCount >= 1){
-                res.render('viewStudent',context);
+                res.render('viewWand',context);
             }
 
         }});
