@@ -3,7 +3,8 @@ module.exports = function(){
     var router = express.Router();
 
     function getStudent(res, mysql, context, done){
-        mysql.pool.query("SELECT student.student_id as sID, first_name as fname, last_name as lname, age AS ageStudent, school as stuSchool, house as stuHouse, pet as stuPet, wand as stuWand FROM student",
+        var sql = "SELECT student.student_id as sID, first_name as fname, last_name as lname, age AS ageStudent, school as stuSchool, house as stuHouse, pet as stuPet, wand as stuWand FROM student";
+        mysql.pool.query(sql,
             function(error, results, fields){
             if(error){
                 res.write(JSON.stringify(error));
