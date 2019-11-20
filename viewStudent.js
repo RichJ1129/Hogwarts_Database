@@ -3,7 +3,11 @@ module.exports = function(){
     var router = express.Router();
 
     function getStudent(res, mysql, context, done){
-        var sql = "SELECT student.student_id as sID, first_name as fname, last_name as lname, age AS ageStudent, school as stuSchool, house as stuHouse, pet as stuPet, wand as stuWand FROM student";
+        var sql = 'SELECT student.student_id as sID, first_name as fname, last_name as lname, age AS ageStudent, school.name as stuSchool, house.name as stuHouse, pet.name as stuPet, wand.core as stuWand FROM student\n' +
+            'JOIN school ON student.school = school.school_id\n' +
+            'JOIN house ON student.house = house.house_id\n' +
+            'JOIN pet ON student.pet = pet.pet_id\n' +
+            'JOIN wand ON student.wand = wand.wand_id;';
         mysql.pool.query(sql,
             function(error, results, fields){
             if(error){
