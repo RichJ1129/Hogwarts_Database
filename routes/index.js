@@ -31,11 +31,6 @@ router.get('/regProfessor', function(req, res, next) {
   res.render('regProfessor', { title: 'Hogwart\'s HeadMaster Database' });
 });
 
-/* GET register pet page. */
-router.get('/regPet', function(req, res, next) {
-  res.render('regPet', { title: 'Hogwart\'s HeadMaster Database' });
-});
-
 /* GET register wand page. */
 router.get('/regWand', function(req, res, next) {
   res.render('regWand', { title: 'Hogwart\'s HeadMaster Database' });

@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mysql = require('./dbcon.js');
-
+var bodyParser = require('body-parser');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -14,6 +14,8 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.set('mysql', mysql);
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -26,8 +28,8 @@ app.use('/classEnrollment', indexRouter);
 app.use('/dismissProfessor', indexRouter);
 app.use('/regStudent', indexRouter);
 app.use('/regProfessor', indexRouter);
-app.use('/regPet', indexRouter);
-app.use('/regWand', indexRouter);
+app.use('/regPet', require('./regPet.js'));
+app.use('/regWand', require('./regWand.js'));
 app.use('/viewWand', require("./viewWand.js"));
 app.use('/viewStudent', require('./viewStudent.js'));
 app.use('/viewProfessor', require("./viewProfessor.js"));

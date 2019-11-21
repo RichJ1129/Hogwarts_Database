@@ -1,24 +1,24 @@
 <div class="container" class="regWandForm">
     <h2 class="text-center">Register Wand</h2>
-    <form id="newWand" action="/register_wand" method="post">
-        <div class="form-row">
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Owner's First name (Required)">
-            </div>
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Owner's Last name (Required)">
-            </div>
-        </div>
+    <form id="newWand" action="/regWand" method="post">
+<!--        <div class="form-row">-->
+<!--            <div class="col">-->
+<!--                <input type="text" class="form-control" placeholder="Owner's First name (Required)">-->
+<!--            </div>-->
+<!--            <div class="col">-->
+<!--                <input type="text" class="form-control" placeholder="Owner's Last name (Required)">-->
+<!--            </div>-->
+<!--        </div>-->
         <div class="form-row">
             <div class="col-md-6 mb-3">
                 <label for="studentAge">Wand Length</label>
-                <input type="number" class="form-control" id="studentAge" placeholder="1.2" required>
+                <input type="number" class="form-control" id="wandLength" name="wandLen" placeholder="1.2" required>
             </div>
         </div>
         <div class="form-row">
             <div class="col-md-6 mb-3">
                 <label for="matSelect">Wand Material</label>
-                <select class="form-control" id="matSelect">
+                <select class="form-control" id="matSelect" name="matName">
                     <option value="Acacia">Acacia</option>
                     <option value="Cedar">Cedar</option>
                     <option value="Elm">Elm</option>
@@ -28,7 +28,7 @@
             </div>
             <div class="col-md-6 mb-3">
                 <label for="coreSelect">Wand Core</label>
-                <select class="form-control" id="coreSelect" placeholder="Select Core Type">
+                <select class="form-control" id="coreSelect" placeholder="Select Core Type" name="coreName">
                     <option value="Dragon HeartString">Dragon HeartString</option>
                     <option value="Phoenix Feather">Phoenix Feather</option>
                     <option value="Unicorn Hair">Unicorn Hair</option>
