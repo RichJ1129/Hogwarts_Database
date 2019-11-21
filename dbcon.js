@@ -3,7 +3,7 @@ var aws = require('aws-sdk');
 
 var con = mysql.createConnection({
     connectionLimit : 10,
-    host            : process.env.database,
+    host            : process.env.host,
     user            : process.env.user,
     password        : process.env.pw,
     database        : process.env.database
