@@ -1,31 +1,33 @@
 <div class="container" class="regProfForm">
     <h2 class="text-center">Register Professor</h2>
-    <form id="newProfessor" action="/regProf" method="post">
+    <form id="newProfessor" action="/regProfessor" method="post">
         <div class="form-row">
             <div class="col">
-                <input type="text" class="form-control" placeholder="First name (Required)">
+                <input type="text" class="form-control" name="fName" placeholder="First name (Required)">
             </div>
             <div class="col">
-                <input type="text" class="form-control" placeholder="Last name (Required)">
+                <input type="text" class="form-control" name="lName" placeholder="Last name (Required)">
             </div>
         </div>
         <div class="form-row">
-            <div class="col-md-6 mb-3">
-                <label for="studentAge">Age</label>
-                <input type="number" class="form-control" id="studentAge" placeholder="30" required>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="col-md-6 mb-3">
-             <label for="studentAge">Class (Required)</label>
-               <input type="text" class="form-control" id="proffClass" placeholder="Enter Class" required>
-            </div>
             <div class="form-group col-md-6">
                 <label for="schoolSelect">Select School</label>
-                <select class="form-control" id="schoolSelect">
-                    <option value="Hogwarts">Hogwarts School of Witchcraft and Wizardry</option>
-                    <option value="Beauxbatons">Beauxbatons Academy of Magic</option>
-                    <option value="Durmstrang">Durmstrang Institute</option>
+                <select class="form-control" id="schoolSelect" name="school">
+                    <option value=1>Hogwarts School of Witchcraft and Wizardry</option>
+                    <option value=2>Beauxbatons Academy of Magic</option>
+                    <option value=3>Durmstrang Institute</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="houseSelect">Select House</label>
+                <select class="form-control" id="houseSelect" name="house">
+                    <option value=1>Gryffindor - Hogwarts</option>
+                    <option value=2>Hufflepuff - Hogwarts</option>
+                    <option value=3>Ravenclaw - Hogwarts</option>
+                    <option value=4>Slytherin - Hogwarts</option>
+                    <option value=5>Bellefeuille - Beauxbatons</option>
+                    <option value=6>Ombrelune - Beauxbatons</option>
+                    <option value=7>Papillonlisse - Beauxbatons</option>
                 </select>
             </div>
         </div>

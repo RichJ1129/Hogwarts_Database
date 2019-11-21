@@ -21,21 +21,6 @@ router.get('/dismissProfessor', function(req, res, next) {
   res.render('dismissProfessor', { title: 'Hogwart\'s HeadMaster Database' });
 });
 
-/* GET register student page. */
-router.get('/regStudent', function(req, res, next) {
-  res.render('regStudent', { title: 'Hogwart\'s HeadMaster Database' });
-});
-
-/* GET register professor page. */
-router.get('/regProfessor', function(req, res, next) {
-  res.render('regProfessor', { title: 'Hogwart\'s HeadMaster Database' });
-});
-
-/* GET register wand page. */
-router.get('/regWand', function(req, res, next) {
-  res.render('regWand', { title: 'Hogwart\'s HeadMaster Database' });
-});
-
 /* GET update Student page. */
 router.get('/updateStudent', function(req, res, next) {
   res.render('updateStudent', { title: 'Hogwart\'s HeadMaster Database' });

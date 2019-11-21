@@ -6,8 +6,8 @@ module.exports = function(){
         var sql = 'SELECT student.student_id as sID, first_name as fname, last_name as lname, age AS ageStudent, school.name as stuSchool, house.name as stuHouse, pet.name as stuPet, wand.core as stuWand FROM student\n' +
             'JOIN school ON student.school = school.school_id\n' +
             'JOIN house ON student.house = house.house_id\n' +
-            'JOIN pet ON student.pet = pet.pet_id\n' +
-            'JOIN wand ON student.wand = wand.wand_id;';
+            'LEFT JOIN pet ON student.pet = pet.pet_id\n' +
+            'LEFT JOIN wand ON student.wand = wand.wand_id;';
         mysql.pool.query(sql,
             function(error, results, fields){
             if(error){
@@ -31,7 +31,6 @@ module.exports = function(){
             if(callbackCount >= 1){
                 res.render('viewStudent',context);
             }
-
         }});
     return router;
 }();
