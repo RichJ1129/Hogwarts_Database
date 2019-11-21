@@ -5,7 +5,7 @@ var con = mysql.createConnection({
     connectionLimit : 10,
     host            : process.env.host,
     user            : process.env.user,
-    password        : process.env.pw,
+    password        : process.env.password,
     database        : process.env.database
 });
 
