@@ -9,7 +9,7 @@ var con = mysql.createConnection({
     database        : process.env.database
 });
 
-con.connect((err) => {
+con.connect(function(err){
     if(err){
         console.log('Error connecting to Db');
         return;
