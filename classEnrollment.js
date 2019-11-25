@@ -15,7 +15,35 @@ module.exports = function(){
                 res.end();
             }
             context.student_class = results;
-            console.log(context.students);
+            console.log(context.student_class);
+            done();
+        });
+    }
+
+    function getStudents(res, mysql, context, done){
+        var sql = 'SELECT * FROM student;';
+        mysql.pool.query(sql,
+            function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            context.student = results;
+            console.log(context.student);
+            done();
+        });
+    }
+
+    function getClasses(res, mysql, context, done){
+        var sql = 'SELECT * FROM class;';
+        mysql.pool.query(sql,
+            function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            context.class = results;
+            console.log(context.class);
             done();
         });
     }
@@ -25,7 +53,9 @@ module.exports = function(){
         var context = { title: 'Hogwart\'s HeadMaster Database' };
         context.jsscripts = ["dropClass.js"];
         var mysql = req.app.get('mysql');
-        getStudentClass(res,mysql, context, done);
+        getStudents(res, mysql, context, done);
+        getClass(res, mysql, context, done);
+        getStudentClass(res, mysql, context, done);
         function done(){
             callbackCount++;
             if(callbackCount >= 1){
