@@ -1,0 +1,30 @@
+<div class="container" style="padding: 10% 0% 10% 0%">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Student ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">School</th>
+            <th scope="col">House</th>
+            <th scope="col">Pet</th>
+            <th scope="col">Wand</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each students}}
+            <tr>
+                <td>{{sID}}</td>
+                <td>{{fname}}</td>
+                <td>{{lname}}</td>
+                <td>{{ageStudent}}</td>
+                <td>{{stuSchool}}</td>
+                <td>{{stuHouse}}</td>
+                <td>{{stuPet}}</td>
+                <td>{{stuWand}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>

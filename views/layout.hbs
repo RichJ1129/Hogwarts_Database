@@ -6,12 +6,11 @@
       <script src="https://kit.fontawesome.com/a364443456.js"></script>
       <link rel='stylesheet' href='/stylesheets/style.css' />
 
-
   </head>
   <body>
   <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-          <a class="navbar-brand" href="/home/"><span class="projectName">{{title}}</span></a>
+          <a class="navbar-brand" href="/"><span class="projectName">{{title}}</span></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
           </button>
@@ -22,10 +21,9 @@
                           Student
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                          <a class="dropdown-item" href="#">Register Student</a>
-                          <a class="dropdown-item" href="#">View Students</a>
-                          <a class="dropdown-item" href="/regStudent.hbs">Update Student Information</a>
-                          <a class="dropdown-item" href="#">Expel Student</a>
+                          <a class="dropdown-item" href="/regStudent">Register Student</a>
+                          <a class="dropdown-item" href="/viewStudent">View Students</a>
+                          <a class="dropdown-item" href="/expelStudent">Expel Student</a>
                       </div>
                   </li>
                   <li class="nav-item dropdown">
@@ -33,10 +31,10 @@
                           <i class="fas fa-hat-wizard"></i></span> Professor
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                          <a class="dropdown-item" href="#">Register Professor</a>
-                          <a class="dropdown-item" href="#">View Professors</a>
-                          <a class="dropdown-item" href="#">Update Professor Information</a>
-                          <a class="dropdown-item" href="#">Dismiss Professor </a>
+                          <a class="dropdown-item" href="/regProfessor">Register Professor</a>
+                          <a class="dropdown-item" href="/viewProfessor">View Professors</a>
+                          <a class="dropdown-item" href="/updateProfessor">Update Professor Information</a>
+                          <a class="dropdown-item" href="/dismissProfessor">Dismiss Professor </a>
                       </div>
                   </li>
                   <li class="nav-item dropdown">
@@ -44,9 +42,9 @@
                           <span class="icon"><i class="fas fa-paw"></i></span> Pet
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                          <a class="dropdown-item" href="#">Register Pet</a>
-                          <a class="dropdown-item" href="#">View Pets</a>
-                          <a class="dropdown-item" href="#">Update Pet Information</a>
+                          <a class="dropdown-item" href="/regPet">Register Pet</a>
+                          <a class="dropdown-item" href="/viewPets">View Pets</a>
+                          <a class="dropdown-item" href="/updatePets">Update Pet Information</a>
                       </div>
                   </li>
                   <li class="nav-item dropdown">
@@ -54,10 +52,18 @@
                           <span class="icon"><i class="fas fa-magic"></i></span> Wand
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                          <a class="dropdown-item" href="#">Register Wand</a>
-                          <a class="dropdown-item" href="#">View Wands</a>
-                          <a class="dropdown-item" href="#">Update Wand Information</a>
+                          <a class="dropdown-item" href="/regWand">Register Wand</a>
+                          <a class="dropdown-item" href="/viewWand">View Wands</a>
+                          <a class="dropdown-item" href="/updateWand">Update Wand Information</a>
                       </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="icon"><i class="fas fa-chalkboard-teacher"></i></span> Classes </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="/classEnrollment">View Class Enrollment</a>
+                       <a class="dropdown-item" href="/createClass">Create Class</a>
+                       <a class="dropdown-item" href="/enrollStudent">Enroll Student</a>
+                     </div>
                   </li>
               </ul>
           </div>

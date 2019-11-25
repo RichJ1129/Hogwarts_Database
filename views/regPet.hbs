@@ -1,0 +1,17 @@
+<div class="container" class="regPetForm">
+    <h2 class="text-center">Register Pet</h2>
+    <form id="newPet" action="/regPet" method="POST">
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label for="pName">Pet's Name (Required)</label>
+                <input type="text" class="form-control" id="pName" name="petName" placeholder="Enter Name" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="pSpecies">Pet's Species (Required)</label>
+                <input type="text" class="form-control" id="pSpecies" name="petSpecies" placeholder="Enter Species" required>
+            </div>
+        </div>
+        <br>
+        <button class="btn btn-primary" type="submit">Register Pet</button>
+    </form>
+</div>

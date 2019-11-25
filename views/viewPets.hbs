@@ -1,0 +1,20 @@
+<div class="container" style="padding: 10% 0% 10% 0%">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Pet ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Species</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each pet}}
+            <tr>
+                <td>{{petID}}</td>
+                <td>{{petName}}</td>
+                <td>{{petSpecies}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>

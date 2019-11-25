@@ -1,0 +1,19 @@
+<br />
+<h2>Remove Pet:</h2>
+<form id="removePet" action="/removePet" method="post">
+    <div>
+        <label class="inputLabel">Pet Name (Required):</label>
+        <select name="pet_name_remove" id="pet_name_remove">
+            <option value="" selected="selected">Select Pet</option>
+            {{#if pets}}
+            {{#each pets}}
+            <option id="selectedName" value="{{this.id}}">{{this.name}}</option>
+            {{/each}}
+            {{/if}}
+        </select>
+    </div>
+    <br />
+    <div>
+        <input type="submit" name="Remove Pet" value="Remove Pet" id="postRemovePet">
+    </div>
+</form>

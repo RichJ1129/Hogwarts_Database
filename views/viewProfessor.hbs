@@ -1,0 +1,29 @@
+<div class="container" style="padding: 10% 0% 10% 0%">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Professor ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">School</th>
+            <th scope="col">House</th>
+            <th scope="col">Pet</th>
+            <th scope="col">Wand</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each professor}}
+            <tr>
+                <td>{{pID}}</td>
+                <td>{{fname}}</td>
+                <td>{{lname}}</td>
+                <td>{{profSchool}}</td>
+                <td>{{profHouse}}</td>
+                <td>{{profPet}}</td>
+                <td>{{profWand}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>
+
