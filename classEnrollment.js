@@ -6,8 +6,8 @@ module.exports = function(){
         var sql = 'SELECT s.first_name as fname, s.last_name as lname, c.name as class, p.last_name as professor FROM student_class as sc\n' +
             'JOIN student AS s ON sc.student_id = s.student_id\n' +
             'JOIN class AS c ON sc.class_id = c.class_id\n' +
-            'JOIN professor AS p ON c.professor_id=p.professor_id\n' +
-            'WHERE s.student_id = :studentID_Dropdown OR c.class_id = :classID_Dropdown;';
+            'JOIN professor AS p ON c.professor_id=p.professor_id;';
+            // 'WHERE s.student_id = :studentID_Dropdown OR c.class_id = :classID_Dropdown;';
         mysql.pool.query(sql,
             function(error, results, fields){
             if(error){
