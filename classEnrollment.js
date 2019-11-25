@@ -58,7 +58,7 @@ module.exports = function(){
         getStudentClass(res, mysql, context, done);
         function done(){
             callbackCount++;
-            if(callbackCount >= 1){
+            if(callbackCount >= 3){
                 res.render('classEnrollment',context);
             }
         }});
