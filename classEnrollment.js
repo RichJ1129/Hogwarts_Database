@@ -20,45 +20,43 @@ module.exports = function(){
         });
     }
 
-    function getStudents(res, mysql, context, done){
-        var sql = 'SELECT * FROM student;';
-        mysql.pool.query(sql,
-            function(error, results, fields){
-            if(error){
-                res.write(JSON.stringify(error));
-                res.end();
-            }
-            context.student = results;
-            console.log(context.student);
-            done();
-        });
-    }
+    // function getStudents(res, mysql, context, done){
+    //     var sql = 'SELECT * FROM student;';
+    //     mysql.pool.query(sql,
+    //         function(error, results, fields){
+    //         if(error){
+    //             res.write(JSON.stringify(error));
+    //             res.end();
+    //         }
+    //         context.student = results;
+    //         console.log(context.student);
+    //         done();
+    //     });
+    // }
 
-    function getClasses(res, mysql, context, done){
-        var sql = 'SELECT * FROM class;';
-        mysql.pool.query(sql,
-            function(error, results, fields){
-            if(error){
-                res.write(JSON.stringify(error));
-                res.end();
-            }
-            context.class = results;
-            console.log(context.class);
-            done();
-        });
-    }
+    // function getClasses(res, mysql, context, done){
+    //     var sql = 'SELECT * FROM class;';
+    //     mysql.pool.query(sql,
+    //         function(error, results, fields){
+    //         if(error){
+    //             res.write(JSON.stringify(error));
+    //             res.end();
+    //         }
+    //         context.class = results;
+    //         console.log(context.class);
+    //         done();
+    //     });
+    // }
 
     router.get('/', function(req, res){
         var callbackCount = 0;
         var context = { title: 'Hogwart\'s HeadMaster Database' };
         context.jsscripts = ["dropClass.js"];
         var mysql = req.app.get('mysql');
-        getStudents(res, mysql, context, done);
-        getClass(res, mysql, context, done);
         getStudentClass(res, mysql, context, done);
         function done(){
             callbackCount++;
-            if(callbackCount >= 3){
+            if(callbackCount >= 1){
                 res.render('classEnrollment',context);
             }
         }});
