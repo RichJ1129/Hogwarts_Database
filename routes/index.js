@@ -13,7 +13,7 @@ router.get('/expelStudent', function(req, res, next) {
 
 /* GET class enrollment  page. */
 router.get('/classEnrollment', function(req, res, next) {
-  res.render('classEnrolment', { title: 'Hogwart\'s HeadMaster Database' });
+  res.render('classEnrollment', { title: 'Hogwart\'s HeadMaster Database' });
 });
 
 /* GET dismiss professor page. */
