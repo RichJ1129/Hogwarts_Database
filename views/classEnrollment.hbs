@@ -1,18 +1,20 @@
-<div class="container form-group col-3 bg-dark" style="padding: 10% 0% 10% 0%">
-    <label class="bg-dark text-light" for="filter-by">Filter by:</label>
-    <select class="form-control" name="studentID_dropdown" id="filter-by-select">
-    	<option value="">Select Filter</option>
-            <optgroup label="Students">
-                {{#each student}}
-                <option value={{this.student_id}}>{{this.first_name}} {{this.last_name}}</option>
-                {{/each}}
-            </optgroup>
-            <optgroup label="Classes">
-                {{#each class}}
-                <option value={{this.class_id}}>{{this.name}}</option>
-                {{/each}}
-            </optgroup>
-    </select>
+<div class="container" style="padding: 10% 0% 10% 0%">
+    <div class="form-group col-3 bg-dark">
+        <label class="bg-dark text-light" for="filter-by">Filter by:</label>
+        <select class="form-control" name="studentID_dropdown" id="filter-by-select">
+            <option value="">Select Filter</option>
+                <optgroup label="Students">
+                    {{#each student}}
+                    <option value={{this.student_id}}>{{this.first_name}} {{this.last_name}}</option>
+                    {{/each}}
+                </optgroup>
+                <optgroup label="Classes">
+                    {{#each class}}
+                    <option value={{this.class_id}}>{{this.name}}</option>
+                    {{/each}}
+                </optgroup>
+        </select>
+    </div>
     <table class="table">
         <thead class="thead-dark">
         <tr>
