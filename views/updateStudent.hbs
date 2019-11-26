@@ -5,7 +5,7 @@
         Last name: <input class="form-control" type="text" name="last_name" value="{{student.last_name}}"><br>
         Age: <input class="form-control" type="number" name="age" value="{{student.age}}"><br>
         School: <select class="form-control" name="school" id="school-selector"> 
-            {{#each school}}
+            {{#each schools}}
                 <option value="{{school_id}}">{{name}}</option>
             {{/each}}
         </select><br>
@@ -21,7 +21,7 @@
         </select><br>
          Wand: <select class="form-control" name="wand" id="wand-selector"> 
             {{#each wands}}
-                <option value="{{wand_id}}">{{wand_id}}</option>
+                <option value="{{wand_id}}">{{id}}</option>
             {{/each}}
         </select><br>
     </form>
