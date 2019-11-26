@@ -1,3 +1,3 @@
-function selectSchool(school_id){
-    $("#school-selector").val(school_id);
+function selectSchool(id){
+    $("#school-selector").val(id);
 }
