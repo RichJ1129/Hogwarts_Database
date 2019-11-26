@@ -10,19 +10,21 @@
             <th scope="col">Pet</th>
             <th scope="col">Wand</th>
             <th scope="col"></th>
+            <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
         {{#each professor}}
             <tr>
-                <td>{{pID}}</td>
-                <td>{{fname}}</td>
-                <td>{{lname}}</td>
-                <td>{{profSchool}}</td>
-                <td>{{profHouse}}</td>
-                <td>{{profPet}}</td>
-                <td>{{profWand}}</td>
-                <td><button type="button" class="btn btn-danger" onclick="deleteProfessor({{pID}})">Dismiss</button></td>
+                <td >{{pID}}</td>
+                <td >{{fname}}</td>
+                <td >{{lname}}</td>
+                <td >{{profSchool}}</td>
+                <td >{{profHouse}}</td>
+                <td >{{profPet}}</td>
+                <td >{{profWand}}</td>
+                <td><button type="button" class="btn btn-danger" onclick="deleteProfessor({{pID}})">Dismiss </button></td>
+                <td><a href="/viewProfessor/{{pID}}">Update</a>  </td>
             </tr>
         {{/each}}
         </tbody>

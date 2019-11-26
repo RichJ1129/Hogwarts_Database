@@ -1,40 +1,38 @@
 <div class="container" style="padding: 10% 0% 10% 0%">
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Select Professor
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#"></a>
-            <a class="dropdown-item" href="#"></a>
-            <a class="dropdown-item" href="#"></a>
+    <form id="updateProfessor" action="/viewProfessor" method="post">
+        <div class="form-row">
+            <div class="col">
+                <input type="text" class="form-control" name="fName" value = {{professor.fname}}>
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" name="lName" value ={{professor.lname}}>
+            </div>
         </div>
-    </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="schoolSelect">Select School</label>
+                <select class="form-control" id="schoolSelect" name="school">
+                    <option value=1>Hogwarts School of Witchcraft and Wizardry</option>
+                    <option value=2>Beauxbatons Academy of Magic</option>
+                    <option value=3>Durmstrang Institute</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="houseSelect">Select House</label>
+                <select class="form-control" id="houseSelect" name="house">
+                    <option value=1>Gryffindor - Hogwarts</option>
+                    <option value=2>Hufflepuff - Hogwarts</option>
+                    <option value=3>Ravenclaw - Hogwarts</option>
+                    <option value=4>Slytherin - Hogwarts</option>
+                    <option value=5>Bellefeuille - Beauxbatons</option>
+                    <option value=6>Ombrelune - Beauxbatons</option>
+                    <option value=7>Papillonlisse - Beauxbatons</option>
+                </select>
+            </div>
+        </div>
+        <button type="button" class="btn btn-secondary" onclick="updateProfessor({{professor.pID}})">Update Professor</button>
+    </form>
+
+
     <br>
-
-    <table class="table">
-        <thead class="thead-dark">
-        <tr>
-            <th scope="col">Professor ID</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">School</th>
-            <th scope="col">House</th>
-            <th scope="col">Pet</th>
-            <th scope="col">Wand</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-
-        </tr>
-        <tr>
-
-        </tr>
-        <tr>
-
-        </tr>
-        </tbody>
-    </table>
-    <br>
-    <button type="button" class="btn btn-secondary">Update Professor</button>
 </div>
