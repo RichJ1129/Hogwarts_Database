@@ -19,6 +19,7 @@ module.exports = function(){
             done();
         });
     }
+
     function getStudent(res, mysql, context, id, complete){
         var sql = "SELECT student_id as id, first_name, last_name, age, school, house, pet, wand FROM student WHERE student_id = ?";
         var inserts = [id];
@@ -27,17 +28,18 @@ module.exports = function(){
                 res.write(JSON.stringify(error));
                 res.end();
             }
-            context.student = results[0];
+            context.person = results[0];
             complete();
         });
     }
+    
 
     router.get('/', function(req, res){
         var callbackCount = 0;
         var context = { title: 'Hogwart\'s HeadMaster Database' };
         context.jsscripts = ["deleteStudent.js"];
         var mysql = req.app.get('mysql');
-        getStudent(res,mysql, context, done);
+        getStudents(res,mysql, context, done);
         function done(){
             callbackCount++;
             if(callbackCount >= 1){
@@ -46,7 +48,7 @@ module.exports = function(){
         }
     });
 
-    router.get('/:id', function(req, res){
+    router.get('/:student_id', function(req, res){
         callbackCount = 0;
         var context = {};
         context.jsscripts = ["selectSchool.js", "selectHouse.js", "selectPet.js", "selectWand.js", "updateStudent.js"];
