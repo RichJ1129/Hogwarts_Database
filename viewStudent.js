@@ -51,7 +51,7 @@ module.exports = function(){
         var context = {};
         context.jsscripts = ["selectSchool.js", "selectHouse.js", "selectPet.js", "selectWand.js", "updateStudent.js"];
         var mysql = req.app.get('mysql');
-        getStudent(res, mysql, context, req.params.id, complete);
+        getStudent(res, mysql, context, req.params.student_id, complete);
         function complete(){
             callbackCount++;
             if(callbackCount >= 1){
