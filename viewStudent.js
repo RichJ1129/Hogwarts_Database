@@ -14,8 +14,8 @@ module.exports = function(){
                 res.write(JSON.stringify(error));
                 res.end();
             }
-            context.students = results;
-            console.log(context.students);
+            context.student = results;
+            console.log(context.student);
             done();
         });
     }
