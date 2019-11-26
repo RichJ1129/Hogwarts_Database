@@ -1,3 +1,3 @@
-function selectPet(pet_id){
-    $("#pet-selector").val(pet_id);
+function selectPet(id){
+    $("#pet-selector").val(id);
 }
