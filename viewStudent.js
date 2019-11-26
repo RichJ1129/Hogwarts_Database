@@ -108,23 +108,23 @@ module.exports = function(){
         }
     });
 
-    router.put('/:id',function(req,res){
-        var mysql = req.app.get('mysql');
-        console.log(req.body)
-        console.log(req.params.id)
-        var sql = "UPDATE student SET first_name=?, last_name=?, age=?, school=?, house=?, pet=?, wand=? WHERE student_id=?";
-        var inserts = [req.body.first_name, req.body.last_name, req.body.age, req.body.school, req.body.house, req.body.pet, req.body.wand, req.params.id];
-        sql = mysql.pool.query(sql,inserts,function(error,results,fields){
-            if(error){
-                console.log(error)
-                res.write(JSON.stringify(error));
-                res.end();
-            }else{
-                res.status(200);
-                res.end();
-            }
-        })
-    })
+    // router.put('/:id',function(req,res){
+    //     var mysql = req.app.get('mysql');
+    //     console.log(req.body)
+    //     console.log(req.params.id)
+    //     var sql = "UPDATE student SET first_name=?, last_name=?, age=?, school=?, house=?, pet=?, wand=? WHERE student_id=?";
+    //     var inserts = [req.body.first_name, req.body.last_name, req.body.age, req.body.school, req.body.house, req.body.pet, req.body.wand, req.params.id];
+    //     sql = mysql.pool.query(sql,inserts,function(error,results,fields){
+    //         if(error){
+    //             console.log(error)
+    //             res.write(JSON.stringify(error));
+    //             res.end();
+    //         }else{
+    //             res.status(200);
+    //             res.end();
+    //         }
+    //     })
+    // })
 
     router.delete('/:id', function(req, res){
 
