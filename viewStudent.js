@@ -32,5 +32,28 @@ module.exports = function(){
                 res.render('viewStudent',context);
             }
         }});
+
+
+    router.delete('/:id', function(req, res){
+
+        var mysql = req.app.get('mysql');
+        var sql = "DELETE FROM student WHERE student_id = ?";
+
+        var inserts = [req.params.id];
+
+        sql = mysql.pool.query(sql, inserts, function(err, result, fields){
+            if(err){
+                console.log(err);
+                res.write(JSON.stringify(err));
+                res.status(400);
+                res.end();
+            }else{
+                res.status(202);
+                console.log("DELETE CONFIRMED");
+                res.end();
+            }
+        });
+    });
+
     return router;
 }();

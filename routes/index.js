@@ -7,9 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET expel student page. */
-router.get('/expelStudent', function(req, res, next) {
-  res.render('expelStudent', { title: 'Hogwart\'s HeadMaster Database' });
-});
+
 
 /* GET class enrollment  page. */
 router.get('/classEnrollment', function(req, res, next) {
