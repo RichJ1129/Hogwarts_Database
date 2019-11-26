@@ -1,5 +1,6 @@
-<div class="container form-group bg-dark col-6 text-light" style="padding: 10% 0% 10% 0%">
-    <form id="update-student" action="/people" method="post">
+<div class="container form-group " style="padding: 10% 0% 10% 0%">
+    <div class="bg-dark col-6 text-light">
+    <form id="update-student" action="/viewStudent" method="post">
         First name: <input type="text" name="first_name" value="{{student.first_name}}"><br>
         Last name: <input type="text" name="last_name" value="{{student.last_name}}"><br>
         Age: <input class="form-control" type="number" name="age" value="{{student.age}}"><br>
@@ -25,6 +26,7 @@
         </select><br>
     </form>
     <button class="btn btn-primary" onclick="updateStudent({{student.student_id}})">Update</button>
+    </div>
     <script defer>selectSchool({{student.school}});</script>
     <script defer>selectHouse({{student.house}});</script>
     <script defer>selectPet({{student.pet}});</script>
