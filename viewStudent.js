@@ -2,7 +2,7 @@ module.exports = function(){
     var express = require('express');
     var router = express.Router();
 
-    function getStudents(res, mysql, context, done){
+    function getStudent(res, mysql, context, done){
         var sql = 'SELECT student.student_id as sID, first_name as fname, last_name as lname, age AS ageStudent, school.name as stuSchool, house.name as stuHouse, pet.name as stuPet, wand.core as stuWand FROM student\n' +
             'JOIN school ON student.school = school.school_id\n' +
             'JOIN house ON student.house = house.house_id\n' +
@@ -82,7 +82,7 @@ module.exports = function(){
         var context = { title: 'Hogwart\'s HeadMaster Database' };
         context.jsscripts = ["deleteStudent.js"];
         var mysql = req.app.get('mysql');
-        getStudents(res,mysql, context, done);
+        getStudent(res,mysql, context, done);
         function done(){
             callbackCount++;
             if(callbackCount >= 1){
