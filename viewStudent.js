@@ -31,22 +31,41 @@ module.exports = function(){
             if(callbackCount >= 1){
                 res.render('viewStudent',context);
             }
-        }});
-    
-    router.delete('/:id', function(req, res){
+        }
+    });
+
+    router.get('/:id', function(req, res){
+        callbackCount = 0;
+        var context = {};
+        context.jsscripts = ["selectSchool.js", "selectHouse.js", "selectPet.js", "selectWand.js", "updateStudent.js"];
         var mysql = req.app.get('mysql');
-        var sql = "DELETE FROM student WHERE student_id = ?";
-        var inserts = [req.params.id];
-        sql = mysql.pool.query(sql, inserts, function(error, results, fields){
+        getStudent(res, mysql, context, req.params.student_id, complete);
+        function complete(){
+            callbackCount++;
+            if(callbackCount >= 1){
+                res.render('update-person', context);
+            }
+
+        }
+    });
+
+    router.put('/:id', function(req, res){
+        var mysql = req.app.get('mysql');
+        console.log(req.body)
+        console.log(req.params.id)
+        var sql = "UPDATE student SET first_name=?, last_name=?, age=?, school=?, pet=?, wand=? WHERE student_id=?";
+        var inserts = [req.body.first_name, req.body.last_name, req.body.age, req.body.school, req.body.house, req.body.pet, req.body.wand, req.params.student_id];
+        sql = mysql.pool.query(sql,inserts,function(error, results, fields){
             if(error){
                 console.log(error)
                 res.write(JSON.stringify(error));
-                res.status(400);
                 res.end();
             }else{
-                res.status(202).end();
+                res.status(200);
+                res.end();
             }
-        })
-    })
+        });
+    });
+    
     return router;
 }();

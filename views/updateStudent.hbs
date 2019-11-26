@@ -1,41 +1,32 @@
 <div class="container" style="padding: 10% 0% 10% 0%">
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Select Student
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#"></a>
-            <a class="dropdown-item" href="#"></a>
-            <a class="dropdown-item" href="#"></a>
-        </div>
-    </div>
-    <br>
-
-    <table class="table">
-        <thead class="thead-dark">
-        <tr>
-            <th scope="col">Student ID</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Age</th>
-            <th scope="col">School</th>
-            <th scope="col">House</th>
-            <th scope="col">Pet</th>
-            <th scope="col">Wand</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-
-        </tr>
-        <tr>
-
-        </tr>
-        <tr>
-
-        </tr>
-        </tbody>
-    </table>
-    <br>
-    <button type="button" class="btn btn-secondary">Update Student</button>
+    <form id="update-person" action="/people" method="post">
+        First name: <input type="text" name="first_name" value="{{student.first_name}}"><br>
+        Last name: <input type="text" name="last_name" value="{{student.last_name}}"><br>
+        Age: <input type="number" name="age" value="{{student.age}}"><br>
+        School: <select name="school" id="school-selector"> 
+            {{#each school}}
+                <option value="{{school_id}}">{{name}}</option>
+            {{/each}}
+        </select><br>
+        House: <select name="house" id="house-selector"> 
+            {{#each school}}
+                <option value="{{house_id}}">{{name}}</option>
+            {{/each}}
+        </select><br>
+         Pet: <select name="pet" id="pet-selector"> 
+            {{#each school}}
+                <option value="{{pet_id}}">{{name}}</option>
+            {{/each}}
+        </select><br>
+         Wand: <select name="wand" id="wand-selector"> 
+            {{#each school}}
+                <option value="{{wand_id}}">{{name}}</option>
+            {{/each}}
+        </select><br>
+    </form>
+    <button onclick="updateStudent({{student.student_id}})">Update</button>
+    <script defer>selectSchool({{student.school}});</script>
+    <script defer>selectHouse({{student.house}});</script>
+    <script defer>selectPet({{student.pet}});</script>
+    <script defer>selectWand({{student.wand}});</script>
 </div>
