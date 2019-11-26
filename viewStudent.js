@@ -90,23 +90,23 @@ module.exports = function(){
             }
         }});
 
-    router.get('/:id', function(req,res){
-        callbackCount = 0;
-        var context = {};
-        context.jsscripts = ["selectSchool.js","selectHouse.js","selectPet.js","selectWand.js","updateStudent.js"];
-        var mysql = req.app.get('mysql');
-        getStudent(res, mysql, context, req.params.id, done);
-        getSchools(res, mysql, context, done);
-        getHouses(res,mysql, context, done);
-        getPets(res, mysql, context, done);
-        getWands(res, mysql, context, done);
-        function done(){
-            callbackCount++;
-            if(callbackCount >= 5){
-                res.render('updateStudent', context);
-            }
-        }
-    });
+    // router.get('/:id', function(req,res){
+    //     callbackCount = 0;
+    //     var context = {};
+    //     context.jsscripts = ["selectSchool.js","selectHouse.js","selectPet.js","selectWand.js","updateStudent.js"];
+    //     var mysql = req.app.get('mysql');
+    //     getStudent(res, mysql, context, req.params.id, done);
+    //     getSchools(res, mysql, context, done);
+    //     getHouses(res,mysql, context, done);
+    //     getPets(res, mysql, context, done);
+    //     getWands(res, mysql, context, done);
+    //     function done(){
+    //         callbackCount++;
+    //         if(callbackCount >= 5){
+    //             res.render('updateStudent', context);
+    //         }
+    //     }
+    // });
 
     // router.put('/:id',function(req,res){
     //     var mysql = req.app.get('mysql');
