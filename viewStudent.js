@@ -121,6 +121,7 @@ module.exports = function(){
                 res.end();
             }else{
                 res.status(200);
+                console.log("UPDATE CONFIRMED");
                 res.end();
             }
         })

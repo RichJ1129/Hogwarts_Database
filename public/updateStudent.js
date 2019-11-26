@@ -2,7 +2,7 @@ function updateStudent(id){
     $.ajax({
         url: '/viewStudent/' + id,
         type: 'PUT',
-        data: $('#update-student').serialize(),
+        data: $('#updateStudent').serialize(),
         success: function(result){
             window.location.replace("./");
         }
