@@ -20,62 +20,62 @@ module.exports = function(){
         });
     }
 
-    function getSchools(res, mysql, context, done){
-        mysql.pool.query("SELECT school_id as id, name FROM school", function(error, results, fields){
-            if(error){
-                res.write(JSON.stringify(error));
-                res.end();
-            }
-            context.schools = results;
-            done();
-        });
-    }
+    // function getSchools(res, mysql, context, done){
+    //     mysql.pool.query("SELECT school_id as id, name FROM school", function(error, results, fields){
+    //         if(error){
+    //             res.write(JSON.stringify(error));
+    //             res.end();
+    //         }
+    //         context.schools = results;
+    //         done();
+    //     });
+    // }
 
-    function getHouses(res, mysql, context, done){
-        mysql.pool.query("SELECT house_id as id, name FROM house", function(error, results, fields){
-            if(error){
-                res.write(JSON.stringify(error));
-                res.end();
-            }
-            context.houses = results;
-            done();
-        });
-    }
+    // function getHouses(res, mysql, context, done){
+    //     mysql.pool.query("SELECT house_id as id, name FROM house", function(error, results, fields){
+    //         if(error){
+    //             res.write(JSON.stringify(error));
+    //             res.end();
+    //         }
+    //         context.houses = results;
+    //         done();
+    //     });
+    // }
 
-    function getPets(res, mysql, context, done){
-        mysql.pool.query("SELECT pet_id as id, name FROM pet", function(error, results, fields){
-            if(error){
-                res.write(JSON.stringify(error));
-                res.end();
-            }
-            context.pets = results;
-            done();
-        });
-    }
+    // function getPets(res, mysql, context, done){
+    //     mysql.pool.query("SELECT pet_id as id, name FROM pet", function(error, results, fields){
+    //         if(error){
+    //             res.write(JSON.stringify(error));
+    //             res.end();
+    //         }
+    //         context.pets = results;
+    //         done();
+    //     });
+    // }
 
-    function getWands(res, mysql, context, done){
-        mysql.pool.query("SELECT wand_id as id FROM wand", function(error, results, fields){
-            if(error){
-                res.write(JSON.stringify(error));
-                res.end();
-            }
-            context.wands = results;
-            done();
-        });
-    }
+    // function getWands(res, mysql, context, done){
+    //     mysql.pool.query("SELECT wand_id as id FROM wand", function(error, results, fields){
+    //         if(error){
+    //             res.write(JSON.stringify(error));
+    //             res.end();
+    //         }
+    //         context.wands = results;
+    //         done();
+    //     });
+    // }
 
-    function getStudent(res, mysql, context, id, done){
-        var sql = "SELECT student_id as id, first_name, last_name, age, school, house, pet, wand FROM student WHERE student_id = ?";
-        var inserts = [id];
-        mysql.pool.query(sql, inserts, function(error, results, fields){
-            if(error){
-                res.write(JSON.stringify(error));
-                res.end();
-            }
-            context.student = results[0];
-            done();
-        });
-    }
+    // function getStudent(res, mysql, context, id, done){
+    //     var sql = "SELECT student_id as id, first_name, last_name, age, school, house, pet, wand FROM student WHERE student_id = ?";
+    //     var inserts = [id];
+    //     mysql.pool.query(sql, inserts, function(error, results, fields){
+    //         if(error){
+    //             res.write(JSON.stringify(error));
+    //             res.end();
+    //         }
+    //         context.student = results[0];
+    //         done();
+    //     });
+    // }
 
     router.get('/', function(req, res){
         var callbackCount = 0;
