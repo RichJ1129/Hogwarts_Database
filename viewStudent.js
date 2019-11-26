@@ -57,7 +57,7 @@ module.exports = function(){
         function complete(){
             callbackCount++;
             if(callbackCount >= 1){
-                res.render('update-person', context);
+                res.render('updateStudent', context);
             }
 
         }
