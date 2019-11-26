@@ -20,6 +20,63 @@ module.exports = function(){
         });
     }
 
+    function getSchools(res, mysql, context, done){
+        mysql.pool.query("SELECT school_id as id, name FROM school", function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            context.schools = results;
+            done();
+        });
+    }
+
+    function getHouses(res, mysql, context, done){
+        mysql.pool.query("SELECT house_id as id, name FROM house", function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            context.houses = results;
+            done();
+        });
+    }
+
+    function getPets(res, mysql, context, done){
+        mysql.pool.query("SELECT pet_id as id, name FROM pet", function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            context.pets = results;
+            done();
+        });
+    }
+
+    function getWands(res, mysql, context, done){
+        mysql.pool.query("SELECT wand_id as id FROM wand", function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            context.wands = results;
+            done();
+        });
+    }
+
+    function getOneStudent(res, mysql, context, id, done){
+        var sql = "SELECT student_id as id, first_name, last_name, age, school, house, pet, wand FROM student WHERE student_id = ?";
+        var inserts = [id];
+        mysql.pool.query(sql, inserts, function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            context.onestudent = results[0];
+            done();
+        });
+    }
+
     router.get('/', function(req, res){
         var callbackCount = 0;
         var context = { title: 'Hogwart\'s HeadMaster Database' };
@@ -33,6 +90,42 @@ module.exports = function(){
             }
         }});
 
+    router.get('/:id', function(req,res){
+        callbackCount = 0;
+        var context = {};
+        context.jsscripts = ["selectSchool.js","selectHouse.js","selectPet.js","selectWand.js","updateStudent.js"];
+        var mysql = req.app.get('mysql');
+        getOneStudent(res, mysql, context, req.params.id, done);
+        getSchools(res, mysql, context, done);
+        getHouses(res,mysql, context, done);
+        getPets(res, mysql, context, done);
+        getWands(res, mysql, context, done);
+        function done(){
+            callbackCount++;
+            if(callbackCount >= 5){
+                res.render('updateStudent', context);
+            }
+        }
+    });
+
+    router.put('/:id',function(req,res){
+        var mysql = req.app.get('mysql');
+        console.log(req.body)
+        console.log(req.params.id)
+        var sql = "UPDATE student SET first_name=?, last_name=?, age=?, school=?, house=?, pet=?, wand=? WHERE student_id=?";
+        var inserts = [req.body.first_name, req.body.last_name, req.body.age, req.body.school, req.body.house, req.body.pet, req.body.wand, req.params.id];
+        sql = mysql.pool.query(sql,inserts,function(error,results,fields){
+            if(error){
+                console.log(error)
+                res.write(JSON.stringify(error));
+                res.end();
+            }else{
+                res.status(200);
+                console.log("UPDATE CONFIRMED");
+                res.end();
+            }
+        })
+    })
 
     router.delete('/:id', function(req, res){
 

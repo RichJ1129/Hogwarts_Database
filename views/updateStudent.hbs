@@ -5,27 +5,27 @@
         Last name: <input class="form-control" type="text" name="last_name" value="{{student.last_name}}"><br>
         Age: <input class="form-control" type="number" name="age" value="{{student.age}}"><br>
         School: <select class="form-control" name="school" id="school-selector"> 
-            {{#each school}}
+            {{#each schools}}
                 <option value="{{school_id}}">{{name}}</option>
             {{/each}}
         </select><br>
         House: <select class="form-control" name="house" id="house-selector"> 
-            {{#each school}}
+            {{#each houses}}
                 <option value="{{house_id}}">{{name}}</option>
             {{/each}}
         </select><br>
          Pet: <select class="form-control" name="pet" id="pet-selector"> 
-            {{#each school}}
+            {{#each pets}}
                 <option value="{{pet_id}}">{{name}}</option>
             {{/each}}
         </select><br>
          Wand: <select class="form-control" name="wand" id="wand-selector"> 
-            {{#each school}}
-                <option value="{{wand_id}}">{{name}}</option>
+            {{#each wands}}
+                <option value="{{wand_id}}">{{id}}</option>
             {{/each}}
         </select><br>
     </form>
-    <button class="btn btn-primary" onclick="updateStudent({{student.student_id}})">Update</button>
+    <button class="btn btn-primary" onclick="updateStudent({{student.id}})">Update</button>
     </div>
     <script defer>selectSchool({{student.school}});</script>
     <script defer>selectHouse({{student.house}});</script>
