@@ -48,12 +48,12 @@ module.exports = function(){
         }
     });
 
-    router.get('/:student_id', function(req, res){
+    router.get('/:id', function(req, res){
         callbackCount = 0;
         var context = {};
         context.jsscripts = ["selectSchool.js", "selectHouse.js", "selectPet.js", "selectWand.js", "updateStudent.js"];
         var mysql = req.app.get('mysql');
-        getStudent(res, mysql, context, req.params.student_id, complete);
+        getStudent(res, mysql, context, req.params.id, complete);
         function complete(){
             callbackCount++;
             if(callbackCount >= 1){
@@ -68,7 +68,7 @@ module.exports = function(){
         console.log(req.body)
         console.log(req.params.id)
         var sql = "UPDATE student SET first_name=?, last_name=?, age=?, school=?, pet=?, wand=? WHERE student_id=?";
-        var inserts = [req.body.first_name, req.body.last_name, req.body.age, req.body.school, req.body.house, req.body.pet, req.body.wand, req.params.student_id];
+        var inserts = [req.body.first_name, req.body.last_name, req.body.age, req.body.school, req.body.house, req.body.pet, req.body.wand, req.params.id];
         sql = mysql.pool.query(sql,inserts,function(error, results, fields){
             if(error){
                 console.log(error)
