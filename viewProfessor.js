@@ -21,7 +21,7 @@ module.exports = function(){
     }
 
     function getPets(res, mysql, context, done){
-        var sql = "SELECT * FROM pets;";
+        var sql = "SELECT * FROM pet;";
         mysql.pool.query(sql, function(error, results, fields){
             if(error){
                 res.write(JSON.stringify(error));
