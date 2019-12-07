@@ -40,7 +40,7 @@
                 <select class="form-control" id="petSelect" name="pet">
                     <option>Select Pet</option>
                     {{#each pets}}
-                    <option value={{pets.pet_id}}>{{pets.name}}</option>
+                    <option value={{this.pet_id}}>{{this.name}}</option>
                     {{/each}}
                 </select>
             </div>
