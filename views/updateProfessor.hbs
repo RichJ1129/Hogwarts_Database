@@ -14,7 +14,7 @@
             <div class="form-group col-md-6">
                 <label for="schoolSelect">School:</label>
                 <select class="form-control" id="schoolSelect" name="school">
-                    <option>Select School:</option>
+                    <option>Select Schools</option>
                     <option value=1>Hogwarts School of Witchcraft and Wizardry</option>
                     <option value=2>Beauxbatons Academy of Magic</option>
                     <option value=3>Durmstrang Institute</option>
@@ -31,6 +31,17 @@
                     <option value=5>Bellefeuille - Beauxbatons</option>
                     <option value=6>Ombrelune - Beauxbatons</option>
                     <option value=7>Papillonlisse - Beauxbatons</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row mt-2">
+            <div class="form-group col-md-6">
+                <label for="petSelect">Pet:</label>
+                <select class="form-control" id="petSelect" name="pet">
+                    <option>Select Pet</option>
+                    {{#each pets}}
+                    <option value={{pets.pet_id}}>{{pets.name}}</option>
+                    {{/each}}
                 </select>
             </div>
         </div>

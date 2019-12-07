@@ -20,6 +20,19 @@ module.exports = function(){
             });
     }
 
+    function getPets(res, mysql, context, done){
+        var sql = "SELECT name FROM pets;";
+        mysql.pool.query(sql, function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            context.pets = results;
+            console.log(context.pets);
+            done();
+        })
+    }
+
     function getOnePro(res, mysql, context, id, done){
         var sql = "SELECT professor.professor_id as pID, first_name as fname, last_name as lname, school.name as profSchool, house.name as profHouse, pet.name as profPet, wand.core as profWand FROM professor\n" +
             "LEFT JOIN school ON professor.school = school.school_id\n" +
@@ -60,9 +73,10 @@ module.exports = function(){
         context.jsscripts = [ "update.js"];
         var mysql = req.app.get('mysql');
         getOnePro(res, mysql, context, req.params.id, complete);
+        getPets(res,mysql,context,complete);
         function complete(){
             callbackCount++;
-            if(callbackCount >= 1){
+            if(callbackCount >= 2){
                 res.render('updateProfessor', context);
             }
 
