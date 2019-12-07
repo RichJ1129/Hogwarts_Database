@@ -21,7 +21,7 @@ module.exports = function(){
     }
 
     function getPets(res, mysql, context, done){
-        var sql = "SELECT name FROM pets;";
+        var sql = "SELECT * FROM pets;";
         mysql.pool.query(sql, function(error, results, fields){
             if(error){
                 res.write(JSON.stringify(error));
@@ -110,8 +110,8 @@ module.exports = function(){
         console.log(req.body);
 
         var mysql = req.app.get('mysql');
-        var sql = "UPDATE professor SET first_name=?, last_name=?, school=?, house=? WHERE professor_id=?";
-        var inserts = [req.body.fName, req.body.lName, req.body.school, req.body.house, req.params.id];
+        var sql = "UPDATE professor SET first_name=?, last_name=?, school=?, house=?, pet=? WHERE professor_id=?";
+        var inserts = [req.body.fName, req.body.lName, req.body.school, req.body.house, req.body.pet, req.params.id];
         console.log(inserts);
 
         sql = mysql.pool.query(sql, inserts, function(err, result, fields){
