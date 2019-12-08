@@ -1,17 +1,23 @@
 <div class="container" class="enrollStudentForm">
     <h2 class="text-center">Enroll a Student in a Class</h2>
-    <form id="enrollStudent" action="/enroll_student" method="post">
+    <form id="enrollStudent" action="/enrollStudent" method="post">
         <div class="form-row">
             <div class="col-md-6 mb-3">
              <label for="studentSelect">Student</label>
-               <select class="form-control" id="student-select">
+               <select class="form-control" id="studentSelect" name="sID">
                     <option value="">Select a Student</option>
+                    {{#each students}}
+                     <option value={{this.sID}}>{{this.fname}} {{this.lname}}</option>
+                     {{/each}}
                 </select>
             </div>
             <div class="form-group col-md-6">
                 <label for="classSelect">Class</label>
-                <select class="form-control" id="classSelect">
+                <select class="form-control" id="classSelect" name="cID">
                     <option value="">Select a Class</option>
+                     {{#each class}}
+                      <option value={{this.cID}}>{{this.name}}</option>
+                      {{/each}}
                 </select>
             </div>
         </div>

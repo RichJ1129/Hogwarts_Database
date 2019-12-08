@@ -36,12 +36,8 @@ router.get('/removeStudentClass', function(req, res, next) {
   res.render('removeStudentClass', { title: 'Hogwart\'s HeadMaster Database' });
 });
 
-/* GET create class page. */
 
-/* GET enroll Student page. */
-router.get('/enrollStudent', function(req, res, next) {
-  res.render('enrollStudent', { title: 'Hogwart\'s HeadMaster Database' });
-});
+
 
 
 module.exports = router;

@@ -21,6 +21,8 @@ module.exports = function(){
             });
     }
 
+
+
     router.get('/', function(req, res){
         var callbackCount = 0;
         var context = { title: 'Hogwart\'s HeadMaster Database' };

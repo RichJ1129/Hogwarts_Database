@@ -37,7 +37,7 @@ app.use('/viewProfessor', require("./viewProfessor.js"));
 app.use('/viewPets', require('./viewPet.js'));
 app.use('/removeStudentClass', indexRouter);
 app.use('/createClass', require('./createClass.js'));
-app.use('/enrollStudent', indexRouter);
+app.use('/enrollStudent', require('./enrollStudent.js'));
 
 app.use('/users', usersRouter);
 
