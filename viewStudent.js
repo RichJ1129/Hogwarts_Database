@@ -32,7 +32,9 @@ module.exports = function(){
     }
 
     function getHouses(res, mysql, context, done){
-        mysql.pool.query("SELECT house_id as id, name FROM house", function(error, results, fields){
+        var sql = "SELECT house.house_id as hid FROM house;";
+        mysql.pool.query(sql,
+            function(error, results, fields){
             if(error){
                 res.write(JSON.stringify(error));
                 res.end();

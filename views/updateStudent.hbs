@@ -7,24 +7,32 @@
         <input type="text" class="form-control" id="lName" name="lName" value={{student.lname}}>
         <label for="age">Age:</label>
         <input type="text" class="form-control" id="age" name="age" value={{student.ageStudent}}>
-        School: <select class="form-control" name="school" id="school-selector">
-            {{#each schools}}
-                <option value="{{school_id}}">{{name}}</option>
-            {{/each}}
-        </select><br>
-        House: <select class="form-control" name="house" id="house-selector"> 
-            {{#each houses}}
-                <option value="{{house_id}}">{{name}}</option>
-            {{/each}}
-        </select><br>
-         Pet: <select class="form-control" name="pet" id="pet-selector"> 
+        <label for="schoolSelect">School:</label>
+        <select class="form-control" id="schoolSelect" name="school">
+            <option>Select Schools</option>
+            <option value=1>Hogwarts School of Witchcraft and Wizardry</option>
+            <option value=2>Beauxbatons Academy of Magic</option>
+            <option value=3>Durmstrang Institute</option>
+        </select>
+        <label for="houseSelect">House:</label>
+        <select class="form-control" id="houseSelect" name="house">
+             <option selected>Select House</option>
+             <option value=1>Gryffindor - Hogwarts</option>
+             <option value=2>Hufflepuff - Hogwarts</option>
+             <option value=3>Ravenclaw - Hogwarts</option>
+             <option value=4>Slytherin - Hogwarts</option>
+             <option value=5>Bellefeuille - Beauxbatons</option>
+             <option value=6>Ombrelune - Beauxbatons</option>
+             <option value=7>Papillonlisse - Beauxbatons</option>
+        </select>
+        Pet: <select class="form-control" name="pet" id="pet-selector">
             {{#each pets}}
                 <option value="{{pet_id}}">{{name}}</option>
             {{/each}}
         </select><br>
-         Wand: <select class="form-control" name="wand" id="wand-selector"> 
+        Wand: <select class="form-control" name="wand" id="wand-selector">
             {{#each wands}}
-                <option value="{{wand_id}}">{{id}}</option>
+                <option value="{{wand_id}}">{{this.id}}</option>
             {{/each}}
         </select><br>
     </form>
