@@ -65,14 +65,20 @@ module.exports = function(){
     }
 
     function getOneStudent(res, mysql, context, id, done){
-        var sql = "SELECT student_id as id, first_name, last_name, age, school, house, pet, wand FROM student WHERE student_id = ?";
+        var sql = 'SELECT student.student_id as sID, first_name as fname, last_name as lname, age AS ageStudent, school.name as stuSchool, house.name as stuHouse, pet.name as stuPet, wand.core as stuWand FROM student\n' +
+            'JOIN school ON student.school = school.school_id\n' +
+            'JOIN house ON student.house = house.house_id\n' +
+            'LEFT JOIN pet ON student.pet = pet.pet_id\n' +
+            'LEFT JOIN wand ON student.wand = wand.wand_id WHERE student_id = ?;';
         var inserts = [id];
+        console.log(inserts);
+
         mysql.pool.query(sql, inserts, function(error, results, fields){
             if(error){
                 res.write(JSON.stringify(error));
                 res.end();
             }
-            context.onestudent = results[0];
+            context.student = results[0];
             done();
         });
     }
@@ -92,8 +98,8 @@ module.exports = function(){
 
     router.get('/:id', function(req,res){
         callbackCount = 0;
-        var context = {};
-        context.jsscripts = ["selectSchool.js","selectHouse.js","selectPet.js","selectWand.js","updateStudent.js"];
+        var context = { title: 'Hogwart\'s HeadMaster Database' };
+        context.jsscripts = ["updateStudent.js"];
         var mysql = req.app.get('mysql');
         getOneStudent(res, mysql, context, req.params.id, done);
         getSchools(res, mysql, context, done);

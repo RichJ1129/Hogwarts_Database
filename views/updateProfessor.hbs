@@ -1,53 +1,42 @@
 <div class="container" style="padding: 10% 0% 10% 0%">
-    <form id="updateProfessor" action="/viewProfessor" method="post">
-        <div class="form-row">
-            <div class="form-group col">
-                <label for="fName">First Name:</label>
-                <input type="text" class="form-control" id="fName" name="fName" value = {{professor.fname}}>
-            </div>
-            <div class="form-group col">
-                <label for="lName">Last Name:</label>
-                <input type="text" class="form-control" id="lName" name="lName" value ={{professor.lname}}>
-            </div>
-        </div>
-        <div class="form-row mt-2">
-            <div class="form-group col-md-6">
-                <label for="schoolSelect">School:</label>
-                <select class="form-control" id="schoolSelect" name="school">
-                    <option>Select Schools</option>
-                    <option value=1>Hogwarts School of Witchcraft and Wizardry</option>
-                    <option value=2>Beauxbatons Academy of Magic</option>
-                    <option value=3>Durmstrang Institute</option>
-                </select>
-            </div>
-            <div class="form-group col-md-6">
-                <label for="houseSelect">House:</label>
-                <select class="form-control" id="houseSelect" name="house">
-                    <option>Select House</option>
-                    <option value=1>Gryffindor - Hogwarts</option>
-                    <option value=2>Hufflepuff - Hogwarts</option>
-                    <option value=3>Ravenclaw - Hogwarts</option>
-                    <option value=4>Slytherin - Hogwarts</option>
-                    <option value=5>Bellefeuille - Beauxbatons</option>
-                    <option value=6>Ombrelune - Beauxbatons</option>
-                    <option value=7>Papillonlisse - Beauxbatons</option>
-                </select>
-            </div>
-        </div>
-        <div class="form-row mt-2">
-            <div class="form-group col-md-6">
-                <label for="petSelect">Pet:</label>
-                <select class="form-control" id="petSelect" name="pet">
-                    <option>Select Pet</option>
-                    {{#each pets}}
-                    <option value={{this.pet_id}}>{{this.name}}</option>
-                    {{/each}}
-                </select>
-            </div>
-        </div>
-        <button type="button" class="btn btn-secondary" onclick="updateProfessor({{professor.pID}})">Update Professor</button>
-    </form>
+    <div class="bg-dark col-6 text-light p-4">
+        <form id="updateProfessor" action="/viewProfessor" method="post">
+            <label for="fName">First Name:</label>
+            <input type="text" class="form-control" id="fName" name="fName" value={{professor.fname}}>
+            <label for="lName">Last Name:</label>
+            <input type="text" class="form-control" id="lName" name="lName" value={{professor.lname}}>
 
+            <label for="schoolSelect">School:</label>
+            <select class="form-control" id="schoolSelect" name="school">
+                <option>Select Schools</option>
+                <option value=1>Hogwarts School of Witchcraft and Wizardry</option>
+                <option value=2>Beauxbatons Academy of Magic</option>
+                <option value=3>Durmstrang Institute</option>
+            </select>
 
+            <label for="houseSelect">House:</label>
+            <select class="form-control" id="houseSelect" name="house">
+                <option>Select House</option>
+                <option value=1>Gryffindor - Hogwarts</option>
+                <option value=2>Hufflepuff - Hogwarts</option>
+                <option value=3>Ravenclaw - Hogwarts</option>
+                <option value=4>Slytherin - Hogwarts</option>
+                <option value=5>Bellefeuille - Beauxbatons</option>
+                <option value=6>Ombrelune - Beauxbatons</option>
+                <option value=7>Papillonlisse - Beauxbatons</option>
+            </select>
+
+            <label for="petSelect">Pet:</label>
+            <select class="form-control" id="petSelect" name="pet">
+                <option>Select Pet</option>
+                {{#each pets}}
+                <option value={{this.pet_id}}>{{this.name}}</option>
+                {{/each}}
+            </select>
+
+            <button type="button" class="btn btn-secondary" onclick="updateProfessor({{professor.pID}})">Update
+                Professor</button>
+        </form>
+    </div>
     <br>
 </div>
