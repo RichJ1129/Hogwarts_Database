@@ -1,24 +1,19 @@
 <div class="container" class="createClassForm">
     <h2 class="text-center">Create Class</h2>
-    <form id="newClass" action="/create_class" method="post">
+    <form id="newClass" action="/createClass" method="post">
         <div class="form-row">
             <div class="col">
-                <input type="text" class="form-control" placeholder="Class name (Required)">
+                <input type="text" class="form-control" name= "className" placeholder="Class name (Required)">
             </div>
         </div>
         <div class="form-row">
             <div class="col-md-6 mb-3">
              <label for="classProf">Professor</label>
-               <select class="form-control" id="professor-select">
+               <select class="form-control" id="professor-select" name="pID">
                     <option value="">Select a Professor</option>
-                </select>
-            </div>
-            <div class="form-group col-md-6">
-                <label for="schoolSelect">School</label>
-                <select class="form-control" id="schoolSelect">
-                    <option value="Hogwarts">Hogwarts School of Witchcraft and Wizardry</option>
-                    <option value="Beauxbatons">Beauxbatons Academy of Magic</option>
-                    <option value="Durmstrang">Durmstrang Institute</option>
+                    {{#each professor}}
+                     <option value={{this.pID}}>{{this.fname}} {{this.lname}}</option>
+                     {{/each}}
                 </select>
             </div>
         </div>
