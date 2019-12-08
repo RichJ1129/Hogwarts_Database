@@ -7,4 +7,4 @@ function updateStudent(id){
             window.location.replace("./");
         }
     })
-};
+}

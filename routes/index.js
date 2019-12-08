@@ -6,14 +6,6 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Hogwart\'s HeadMaster Database' });
 });
 
-/* GET expel student page. */
-
-
-/* GET class enrollment  page. */
-router.get('/classEnrollment', function(req, res, next) {
-  res.render('classEnrollment', { title: 'Hogwart\'s HeadMaster Database' });
-});
-
 
 /* GET update Student page. */
 router.get('/updateStudent', function(req, res, next) {

@@ -1,19 +1,14 @@
 <div class="container" style="padding: 10% 0% 10% 0%">
     <div class="form-group col-3 bg-dark p-3">
-        <label class="bg-dark text-light" for="filter-by">Filter by:</label>
-        <select class="form-control" name="studentID_dropdown" id="filter-by-select">
-            <option value="">Select Filter</option>
-                <optgroup label="Students">
-                    {{#each student}}
-                    <option value={{this.student_id}}>{{this.first_name}} {{this.last_name}}</option>
-                    {{/each}}
-                </optgroup>
-                <optgroup label="Classes">
+    <form id='filter_people' action='' method=''>
+        <label>Filter by Class:</label>
+        <select name="classID" id="filter-by-select">
                     {{#each class}}
-                    <option value={{this.class_id}}>{{this.name}}</option>
+                    <option value={{this.cID}}>{{this.name}}</option>
                     {{/each}}
-                </optgroup>
-        </select>
+                    </select>
+                    <input type="button" value="Filter" onclick="filterByClass()">
+      </form>
     </div>
     <table class="table">
         <thead class="thead-dark">
@@ -30,7 +25,7 @@
             <tr>
                 <td>{{fname}}</td>
                 <td>{{lname}}</td>
-                <td>{{class}}</td>
+                <td>{{cName}}</td>
                 <td>{{professor}}</td>
                 <td><button>Drop</button></td>
             </tr>
