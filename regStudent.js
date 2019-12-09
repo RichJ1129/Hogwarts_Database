@@ -29,9 +29,9 @@ module.exports = function(){
         console.log(req.body);
 
         var mysql = req.app.get('mysql');
-        var sql = "INSERT INTO student (student.first_name, student.last_name, student.age, student.school, student.house) VALUES (?, ?,?,?,?);";
+        var sql = "INSERT INTO student (student.first_name, student.last_name, student.age, student.school, student.house, student.pet) VALUES (?, ?,?,?,?, ?);";
 
-        var inserts = [req.body.fName, req.body.lName, req.body.age, req.body.school, req.body.house];
+        var inserts = [req.body.fName, req.body.lName, req.body.age, req.body.school, req.body.house, req.body.pet];
 
         sql = mysql.pool.query(sql, inserts, function(err, results, fields){
             if(err){
