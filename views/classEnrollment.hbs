@@ -1,14 +1,14 @@
 <div class="container" style="padding: 10% 0% 10% 0%">
-    <div class="form-group col-3 bg-dark p-3">
+    <div class="form-group col-3 bg-dark p-3 rounded">
     <form id='filter_people' action='' method=''>
         <label>Filter by Class:</label>
-        <select name="classID" id="filter-by-select">
+        <select class="form-control" name="classID" id="filter-by-select">
                     <option value="All Classes">All Classes</option>
                     {{#each class}}
                     <option value={{this.cID}}>{{this.name}}</option>
                     {{/each}}
                     </select>
-                    <input type="button" value="Filter" onclick="filterByClass()">
+                    <input class="btn btn-primary" type="button" value="Filter" onclick="filterByClass()">
       </form>
     </div>
     <table class="table">
@@ -18,7 +18,7 @@
             <th scope="col">Last Name</th>
             <th scope="col">Class</th>
             <th scope="col">Professor</th>
-	        <th scope="col">Drop Class</th>
+	        <th scope="col">Drop From Class</th>
         </tr>
         </thead>
         <tbody>

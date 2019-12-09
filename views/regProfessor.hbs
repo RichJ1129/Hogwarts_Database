@@ -1,7 +1,7 @@
-<div class="container bg-dark rounded mt-4" class="regProfForm">
+<div class="container bg-dark rounded mt-4 p-3" class="regProfForm">
     <h2 class="text-center">Register Professor</h2>
     <form id="newProfessor" action="/regProfessor" method="post">
-        <div class="form-row">
+        <div class="form-row mb-3">
             <div class="col">
                 <input type="text" class="form-control" name="fName" placeholder="First name (Required)">
             </div>
@@ -9,7 +9,7 @@
                 <input type="text" class="form-control" name="lName" placeholder="Last name (Required)">
             </div>
         </div>
-        <div class="form-row">
+        <div class="form-row mb-3">
             <div class="form-group col-md-6">
                 <label for="schoolSelect">Select School</label>
                 <select class="form-control" id="schoolSelect" name="school">
@@ -19,7 +19,7 @@
                     <option value=3>Durmstrang Institute</option>
                 </select>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-6 mb-3">
                 <label for="houseSelect">Select House</label>
                 <select class="form-control" id="houseSelect" name="house">
                     <option value=999 selected>Select House</option>
@@ -32,7 +32,7 @@
                     <option value=7>Papillonlisse - Beauxbatons</option>
                 </select>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-6 mb-3">
                 <label for="petSelect">Pet:</label>
                 <select class="form-control" id="petSelect" name="pet">
                     <option value=999 selected>Select Pet</option>

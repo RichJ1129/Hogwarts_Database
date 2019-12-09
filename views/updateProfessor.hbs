@@ -1,12 +1,13 @@
-<div class="container" style="padding: 10% 0% 10% 0%">
+<div class="container form-group" style="padding: 10% 0% 10% 0%">
     <div class="bg-dark col-6 text-light p-4">
+        <h2 class="text-center">Update Professor</h2>
         <form id="updateProfessor" action="/viewProfessor" method="post">
             <label for="fName">First Name:</label>
             <input type="text" class="form-control" id="fName" name="fName" value={{professor.fname}}>
-            <label for="lName">Last Name:</label>
+            <label for="lName" class="mt-3">Last Name:</label>
             <input type="text" class="form-control" id="lName" name="lName" value={{professor.lname}}>
 
-            <label for="schoolSelect">School:</label>
+            <label for="schoolSelect" class="mt-3">School:</label>
             <select class="form-control" id="schoolSelect" name="school">
                 <option value=NULL>Select School</option>
                 <option value=1>Hogwarts School of Witchcraft and Wizardry</option>
@@ -14,7 +15,7 @@
                 <option value=3>Durmstrang Institute</option>
             </select>
 
-            <label for="houseSelect">House:</label>
+            <label for="houseSelect" class="mt-3">House:</label>
             <select class="form-control" id="houseSelect" name="house">
                 <option value=NULL>Select House</option>
                 <option value=1>Gryffindor - Hogwarts</option>
@@ -26,15 +27,15 @@
                 <option value=7>Papillonlisse - Beauxbatons</option>
             </select>
 
-            <label for="petSelect">Pet:</label>
+            <label for="petSelect" class="mt-3">Pet:</label>
             <select class="form-control" id="petSelect" name="pet">
                 <option value=NULL>Select Pet</option>
                 {{#each pets}}
                 <option value={{this.pet_id}}>{{this.name}}</option>
                 {{/each}}
             </select>
-
-            <button type="button" class="btn btn-secondary" onclick="updateProfessor({{professor.pID}})">Update
+            <br>
+            <button type="button" class="btn btn-primary mt-3" onclick="updateProfessor({{professor.pID}})">Update
                 Professor</button>
         </form>
     </div>
