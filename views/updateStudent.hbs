@@ -26,15 +26,18 @@
              <option value=7>Papillonlisse - Beauxbatons</option>
         </select>
         Pet: <select class="form-control" name="pet" id="pet-selector">
+            <option selected>Select Pet</option>
             {{#each pets}}
                 <option value={{this.id}}>{{name}}</option>
             {{/each}}
         </select><br>
         Wand: <select class="form-control" name="wand" id="wand-selector">
+            <option selected>Select Wand</option>
             {{#each wands}}
                 <option value={{this.id}}>{{this.id}}</option>
             {{/each}}
         </select><br>
+        <br>
     </form>
     <button class="btn btn-primary" onclick="updateStudent({{student.sID}})">Update Student</button>
     </div>

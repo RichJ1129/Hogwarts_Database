@@ -7,4 +7,4 @@ function updateWand(id){
             window.location.replace("./");
         }
     })
-}
+} 

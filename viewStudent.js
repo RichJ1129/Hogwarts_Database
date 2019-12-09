@@ -70,8 +70,8 @@ module.exports = function(){
         var sql = 'SELECT student.student_id as sID, first_name as fname, last_name as lname, age AS ageStudent, school.name as stuSchool, house.name as stuHouse, pet.name as stuPet, wand.core as stuWand FROM student\n' +
             'JOIN school ON student.school = school.school_id\n' +
             'JOIN house ON student.house = house.house_id\n' +
-            'LEFT JOIN pet ON student.pet = pet.pet_id\n' +
-            'LEFT JOIN wand ON student.wand = wand.wand_id WHERE student_id = ?;';
+            'LEFT JOIN wand ON student.wand = wand.wand_id LEFT JOIN pet ON student.pet = pet.pet_id\n' +
+            'WHERE student_id = ?;';
         var inserts = [id];
         console.log(inserts);
 
