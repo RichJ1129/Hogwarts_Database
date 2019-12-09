@@ -34,7 +34,7 @@ app.use('/regWand', require('./regWand.js'));
 app.use('/viewWand', require("./viewWand.js"));
 app.use('/viewStudent', require('./viewStudent.js'));
 app.use('/viewProfessor', require("./viewProfessor.js"));
-app.use('/viewPets', require('./viewPet.js'));
+app.use('/viewPet', require('./viewPet.js'));
 app.use('/removeStudentClass', indexRouter);
 app.use('/createClass', require('./createClass.js'));
 app.use('/enrollStudent', require('./enrollStudent.js'));

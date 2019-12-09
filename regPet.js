@@ -23,7 +23,7 @@ module.exports = function(){
                 res.end();
             }else{
                 console.log(inserts);
-                res.redirect('/viewPets');
+                res.redirect('/viewPet');
             }
         });
     });
