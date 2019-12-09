@@ -2,16 +2,16 @@ module.exports = function(){
     var express = require('express');
     var router = express.Router();
 
-    function getPets(res, mysql, context, done){
-        mysql.pool.query("SELECT pet_id as id, name FROM pet", function(error, results, fields){
-            if(error){
+    function getPets(res, mysql, context, done) {
+        mysql.pool.query("SELECT pet_id as id, name FROM pet", function (error, results, fields) {
+            if (error) {
                 res.write(JSON.stringify(error));
                 res.end();
             }
             context.pets = results;
             done();
         });
-
+    }
     router.get('/', function(req, res, next) {
         var callbackCount = 0;
         var context = { title: 'Hogwart\'s HeadMaster Database' };
