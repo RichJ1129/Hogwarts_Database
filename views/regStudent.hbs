@@ -31,7 +31,7 @@
             <div class="form-group col-md-6">
                 <label for="houseSelect">House:</label>
                 <select class="form-control" id="houseSelect" name="house">
-                    <option value="">Select House</option>
+                    <option value=NULL>Select House</option>
                     <option value=1>Gryffindor - Hogwarts</option>
                     <option value=2>Hufflepuff - Hogwarts</option>
                     <option value=3>Ravenclaw - Hogwarts</option>
@@ -43,7 +43,7 @@
             </div>
             <div class="form-group col-md-6">
                 Pet: <select class="form-control" name="pet" id="pet-selector">
-                    <option value="">Select Pet</option>
+                    <option value=NULL>Select Pet</option>
                     {{#each pets}}
                         <option value={{this.id}}>{{name}}</option>
                     {{/each}}
