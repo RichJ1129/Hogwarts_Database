@@ -7,7 +7,7 @@ module.exports = function(){
             'JOIN school ON student.school = school.school_id\n' +
             'JOIN house ON student.house = house.house_id\n' +
             'LEFT JOIN pet ON student.pet = pet.pet_id\n' +
-            'LEFT JOIN wand ON student.wand = wand.wand_id;';
+            'LEFT JOIN wand ON student.wand = wand.wand_id ORDER BY sID ASC;';
         mysql.pool.query(sql,
             function(error, results, fields){
             if(error){
