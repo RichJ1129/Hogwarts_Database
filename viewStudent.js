@@ -3,11 +3,11 @@ module.exports = function(){
     var router = express.Router();
 
     function getStudent(res, mysql, context, done){
-        var sql = 'SELECT student.student_id as sID, first_name as fname, last_name as lname, age AS ageStudent, school.name as stuSchool, house.name as stuHouse, pet.name as stuPet FROM student\n' +
+        var sql = 'SELECT student.student_id as sID, first_name as fname, last_name as lname, age AS ageStudent, school.name as stuSchool, house.name as stuHouse, pet.name as stuPet, wand.core as stuWand FROM student\n' +
             'JOIN school ON student.school = school.school_id\n' +
             'JOIN house ON student.house = house.house_id\n' +
             'LEFT JOIN pet ON student.pet = pet.pet_id\n' +
-            'ORDER BY sID ASC;';
+            'LEFT JOIN wand ON student.wand = wand.wand_id ORDER BY sID ASC;';
         mysql.pool.query(sql,
             function(error, results, fields){
             if(error){
@@ -55,13 +55,22 @@ module.exports = function(){
         });
     }
 
-    
+    function getWands(res, mysql, context, done){
+        mysql.pool.query("SELECT wand_id as id FROM wand", function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            context.wands = results;
+            done();
+        });
+    }
 
     function getOneStudent(res, mysql, context, id, done){
-        var sql = 'SELECT student.student_id as sID, first_name as fname, last_name as lname, age AS ageStudent, school.name as stuSchool, house.name as stuHouse, pet.name as stuPet FROM student\n' +
+        var sql = 'SELECT student.student_id as sID, first_name as fname, last_name as lname, age AS ageStudent, school.name as stuSchool, house.name as stuHouse, pet.name as stuPet, wand.core as stuWand FROM student\n' +
             'JOIN school ON student.school = school.school_id\n' +
             'JOIN house ON student.house = house.house_id\n' +
-            'LEFT JOIN pet ON student.pet = pet.pet_id\n' +
+            'LEFT JOIN wand ON student.wand = wand.wand_id LEFT JOIN pet ON student.pet = pet.pet_id\n' +
             'WHERE student_id = ?;';
         var inserts = [id];
         console.log(inserts);
@@ -98,7 +107,7 @@ module.exports = function(){
         getSchools(res, mysql, context, done);
         getHouses(res,mysql, context, done);
         getPets(res, mysql, context, done);
-        
+        getWands(res, mysql, context, done);
         function done(){
             callbackCount++;
             if(callbackCount >= 5){
@@ -111,8 +120,8 @@ module.exports = function(){
         var mysql = req.app.get('mysql');
         console.log(req.body)
         console.log(req.params.id)
-        var sql = "UPDATE student SET first_name=?, last_name=?, age=?, school=?, house=?, pet=? WHERE student_id=?";
-        var inserts = [req.body.fName, req.body.lName, req.body.age, req.body.school, req.body.house, req.body.pet, req.params.id];
+        var sql = "UPDATE student SET first_name=?, last_name=?, age=?, school=?, house=?, pet=?, wand=? WHERE student_id=?";
+        var inserts = [req.body.fName, req.body.lName, req.body.age, req.body.school, req.body.house, req.body.pet, req.body.wand, req.params.id];
         sql = mysql.pool.query(sql,inserts,function(error,results,fields){
             if(error){
                 console.log(error)
