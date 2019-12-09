@@ -9,7 +9,7 @@
         <input type="text" class="form-control" id="age" name="age" value={{student.ageStudent}}>
         <label for="schoolSelect">School:</label>
         <select class="form-control" id="schoolSelect" name="school">
-            <option>Select Schools</option>
+            <option>Select School</option>
             <option value=1>Hogwarts School of Witchcraft and Wizardry</option>
             <option value=2>Beauxbatons Academy of Magic</option>
             <option value=3>Durmstrang Institute</option>
@@ -27,16 +27,16 @@
         </select>
         Pet: <select class="form-control" name="pet" id="pet-selector">
             {{#each pets}}
-                <option value="{{pet_id}}">{{name}}</option>
+                <option value={{this.id}}>{{name}}</option>
             {{/each}}
         </select><br>
         Wand: <select class="form-control" name="wand" id="wand-selector">
             {{#each wands}}
-                <option value="{{wand_id}}">{{this.id}}</option>
+                <option value={{this.id}}>{{this.id}}</option>
             {{/each}}
         </select><br>
     </form>
-    <button class="btn btn-primary" onclick="updateStudent({{student.sID}})">Update</button>
+    <button class="btn btn-primary" onclick="updateStudent({{student.sID}})">Update Student</button>
     </div>
     <script defer>selectSchool({{student.school}});</script>
     <script defer>selectHouse({{student.house}});</script>

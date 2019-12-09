@@ -121,7 +121,7 @@ module.exports = function(){
         console.log(req.body)
         console.log(req.params.id)
         var sql = "UPDATE student SET first_name=?, last_name=?, age=?, school=?, house=?, pet=?, wand=? WHERE student_id=?";
-        var inserts = [req.body.first_name, req.body.last_name, req.body.age, req.body.school, req.body.house, req.body.pet, req.body.wand, req.params.id];
+        var inserts = [req.body.fName, req.body.lName, req.body.age, req.body.school, req.body.house, req.body.pet, req.body.wand, req.params.id];
         sql = mysql.pool.query(sql,inserts,function(error,results,fields){
             if(error){
                 console.log(error)
