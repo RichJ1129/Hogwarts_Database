@@ -27,7 +27,7 @@
                 <td>{{lname}}</td>
                 <td>{{cName}}</td>
                 <td>{{professor}}</td>
-                <td><button>Drop</button></td>
+                <td><button type="button" class="btn btn-danger" onclick="deleteStudentFromClass({{student_class.student}}, {{student_class.class}})">Drop</button></td>
             </tr>
             {{/each}}        
         </tbody>
