@@ -22,7 +22,7 @@
             <div class="form-group col-md-6">
                 <label for="schoolSelect">School:</label>
                 <select class="form-control" name="school" id="schoolSelect">
-                    <option value=NULL>Select School</option>
+                    <option value="">Select School</option>
                     <option value= 1>Hogwarts School of Witchcraft and Wizardry</option>
                     <option value= 2>Beauxbatons Academy of Magic</option>
                     <option value= 3>Durmstrang Institute</option>
@@ -31,7 +31,7 @@
             <div class="form-group col-md-6">
                 <label for="houseSelect">House:</label>
                 <select class="form-control" id="houseSelect" name="house">
-                    <option value=NULL>Select House</option>
+                    <option value="">Select House</option>
                     <option value=1>Gryffindor - Hogwarts</option>
                     <option value=2>Hufflepuff - Hogwarts</option>
                     <option value=3>Ravenclaw - Hogwarts</option>
@@ -43,7 +43,7 @@
             </div>
             <div class="form-group col-md-6">
                 Pet: <select class="form-control" name="pet" id="pet-selector">
-                    <option value=NULL>Select Pet</option>
+                    <option value="">Select Pet</option>
                     {{#each pets}}
                         <option value={{this.id}}>{{name}}</option>
                     {{/each}}
