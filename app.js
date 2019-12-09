@@ -30,8 +30,6 @@ app.use('/dismissProfessor', indexRouter);
 app.use('/regStudent', require('./regStudent.js'));
 app.use('/regProfessor', require('./regProfessor.js'));
 app.use('/regPet', require('./regPet.js'));
-app.use('/regWand', require('./regWand.js'));
-app.use('/viewWand', require("./viewWand.js"));
 app.use('/viewStudent', require('./viewStudent.js'));
 app.use('/viewProfessor', require("./viewProfessor.js"));
 app.use('/viewPet', require('./viewPet.js'));
