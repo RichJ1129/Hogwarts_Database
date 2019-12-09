@@ -1,10 +1,11 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url("/images/HP.jpg");
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    position: relative;
+    background-color: black;
+    background-image: url("/images/HP.jpg");
+    background-size: cover;
 }
+
 
 a {
   color: #00B7FF;
@@ -46,3 +47,4 @@ label {
 	font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
 	color: white;
 }
+
