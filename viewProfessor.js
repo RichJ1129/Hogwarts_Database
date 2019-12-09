@@ -3,7 +3,7 @@ module.exports = function(){
     var router = express.Router();
 
     function getProfessor(res, mysql, context, done){
-        var sql = "SELECT professor.professor_id as pID, first_name as fname, last_name as lname, school.name as profSchool, house.name as profHouse, pet.name as profPet, wand.core as profWand FROM professor\n" +
+        var sql = "SELECT professor.professor_id as pID, first_name as fname, last_name as lname, school.name as profSchool, house.name as profHouse, pet.name as profPet FROM professor\n" +
             "LEFT JOIN school ON professor.school = school.school_id\n" +
             "LEFT JOIN house ON professor.house = house.house_id\n" +
             "LEFT JOIN pet ON professor.pet = pet.pet_id\n" +
@@ -34,7 +34,7 @@ module.exports = function(){
     }
 
     function getOnePro(res, mysql, context, id, done){
-        var sql = "SELECT professor.professor_id as pID, first_name as fname, last_name as lname, school.name as profSchool, house.name as profHouse, pet.name as profPet, wand.core as profWand FROM professor\n" +
+        var sql = "SELECT professor.professor_id as pID, first_name as fname, last_name as lname, school.name as profSchool, house.name as profHouse, pet.name as profPet FROM professor\n" +
             "LEFT JOIN school ON professor.school = school.school_id\n" +
             "LEFT JOIN house ON professor.house = house.house_id\n" +
             "LEFT JOIN pet ON professor.pet = pet.pet_id\n" +
