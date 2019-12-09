@@ -5,6 +5,8 @@
             <th scope="col">Pet ID</th>
             <th scope="col">Name</th>
             <th scope="col">Species</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
@@ -13,6 +15,8 @@
                 <td>{{petID}}</td>
                 <td>{{petName}}</td>
                 <td>{{petSpecies}}</td>
+                <td><button type="button" class="btn btn-danger" onclick="deletePet({{petID}})">Delete</button></td>
+                <td><a class="btn btn-primary" href="/viewPets/{{petID}}" role="button">Update</a></td>
             </tr>
         {{/each}}
         </tbody>

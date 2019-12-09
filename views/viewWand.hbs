@@ -6,6 +6,8 @@
             <th scope="col">Length</th>
             <th scope="col">Material</th>
             <th scope="col">Core</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
@@ -15,6 +17,8 @@
                 <td>{{length}}</td>
                 <td>{{material}}</td>
                 <td>{{core}}</td>
+                <td><button type="button" class="btn btn-danger" onclick="deleteWand({{wID}})">Delete</button></td>
+                <td><a class="btn btn-primary" href="/viewWand/{{wID}}" role="button">Update</a></td>
             </tr>
         {{/each}}
         </tbody>
