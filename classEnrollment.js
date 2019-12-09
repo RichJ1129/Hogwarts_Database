@@ -12,14 +12,31 @@ module.exports = function(){
         console.log(inserts);
         mysql.pool.query(sql, inserts,
             function(error, results, fields){
-            if(error){
-                res.write(JSON.stringify(error));
-                res.end();
-            }
-            context.student_class = results;
-            console.log(context.student_class);
-            done();
-        });
+                if(error){
+                    res.write(JSON.stringify(error));
+                    res.end();
+                }
+                context.student_class = results;
+                console.log(context.student_class);
+                done();
+            });
+    }
+
+    function getAllClasses(res, mysql, context, done){
+        var sql = "SELECT student.first_name as fname, student.last_name as lname, class.name as cName, professor.last_name as professor FROM student_class\n" +
+            "JOIN student ON student_class.student = student.student_id\n" +
+            "JOIN class ON student_class.class = class.class_id\n" +
+            "JOIN professor ON class.professor = professor.professor_id;";
+        mysql.pool.query(sql,
+            function(error, results, fields){
+                if(error){
+                    res.write(JSON.stringify(error));
+                    res.end();
+                }
+                context.student_class = results;
+                console.log(context.student_class);
+                done();
+            });
     }
 
     function getClasses(res, mysql, context, done){
@@ -56,11 +73,12 @@ module.exports = function(){
     router.delete('/:cID/_/:sID', function(req, res){
         console.log(req.params.sID);
         var mysql = req.app.get('mysql');
-        var sql = "DELETE FROM student_class WHERE student_class.student = ? AND student_class.class = ?";
+        var sql = "DELETE FROM student_class WHERE student_class.student = ? AND student_class.class = ?;";
         var inserts = [req.params.sID, req.params.cID];
         console.log(inserts);
 
-        sql = mysql.pool.query(sql, inserts, function(err, result, fields){
+        sql = mysql.pool.query(sql, inserts,
+            function(err, result, fields){
             if(err){
                 console.log(err);
                 res.write(JSON.stringify(err));
@@ -81,7 +99,7 @@ module.exports = function(){
         context.jsscripts = ["filterClass.js", "deleteStudentFromClass.js"];
         var mysql = req.app.get('mysql');
         getClasses(res, mysql, context, done);
-        getStudentByClass(req,res, mysql, context, done);
+        getAllClasses(res, mysql, context, done);
         function done(){
             callbackCount++;
             if(callbackCount >= 2){
