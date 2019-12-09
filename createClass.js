@@ -4,11 +4,10 @@ module.exports = function(){
 
 
     function getProfessor(res, mysql, context, done){
-        var sql = "SELECT professor.professor_id as pID, first_name as fname, last_name as lname, school.name as profSchool, house.name as profHouse, pet.name as profPet, wand.core as profWand FROM professor\n" +
+        var sql = "SELECT professor.professor_id as pID, first_name as fname, last_name as lname, school.name as profSchool, house.name as profHouse, pet.name as profPet FROM professor\n" +
             "LEFT JOIN school ON professor.school = school.school_id\n" +
             "LEFT JOIN house ON professor.house = house.house_id\n" +
-            "LEFT JOIN pet ON professor.pet = pet.pet_id\n" +
-            "LEFT JOIN wand ON professor.wand = wand.wand_id;";
+            "LEFT JOIN pet ON professor.pet = pet.pet_id;";
         mysql.pool.query(sql,
             function(error, results, fields){
                 if(error){
