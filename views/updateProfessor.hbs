@@ -8,7 +8,7 @@
 
             <label for="schoolSelect">School:</label>
             <select class="form-control" id="schoolSelect" name="school">
-                <option>Select School</option>
+                <option value=NULL>Select School</option>
                 <option value=1>Hogwarts School of Witchcraft and Wizardry</option>
                 <option value=2>Beauxbatons Academy of Magic</option>
                 <option value=3>Durmstrang Institute</option>
@@ -16,7 +16,7 @@
 
             <label for="houseSelect">House:</label>
             <select class="form-control" id="houseSelect" name="house">
-                <option>Select House</option>
+                <option value=NULL>Select House</option>
                 <option value=1>Gryffindor - Hogwarts</option>
                 <option value=2>Hufflepuff - Hogwarts</option>
                 <option value=3>Ravenclaw - Hogwarts</option>
@@ -28,7 +28,7 @@
 
             <label for="petSelect">Pet:</label>
             <select class="form-control" id="petSelect" name="pet">
-                <option>Select Pet</option>
+                <option value=NULL>Select Pet</option>
                 {{#each pets}}
                 <option value={{this.pet_id}}>{{this.name}}</option>
                 {{/each}}
