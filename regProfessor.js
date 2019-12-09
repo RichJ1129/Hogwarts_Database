@@ -2,18 +2,36 @@ module.exports = function(){
     var express = require('express');
     var router = express.Router();
 
+    function getPets(res, mysql, context, done){
+        mysql.pool.query("SELECT pet_id as id, name FROM pet", function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            context.pets = results;
+            done();
+        });
+
     router.get('/', function(req, res, next) {
-        res.render('regProfessor', { title: 'Hogwart\'s HeadMaster Database' });
-    });
+        var callbackCount = 0;
+        var context = { title: 'Hogwart\'s HeadMaster Database' };
+        var mysql = req.app.get('mysql');
+        getPets(res,mysql,context,done);
+        function done(){
+            callbackCount++;
+            if(callbackCount >= 1){
+                res.render('regProfessor', context);
+            }
+        }});
 
     router.post('/', function(req, res){
         console.log("Adding Professor");
         console.log(req.body);
 
         var mysql = req.app.get('mysql');
-        var sql = "INSERT INTO professor (professor.first_name, professor.last_name, professor.school, professor.house) VALUES (?,?,?,?);";
+        var sql = "INSERT INTO professor (professor.first_name, professor.last_name, professor.school, professor.house, professor.pet) VALUES (?,?,?,?,?);";
 
-        var inserts = [req.body.fName, req.body.lName, req.body.school, req.body.house];
+        var inserts = [req.body.fName, req.body.lName, req.body.school, req.body.house, req.body.pet];
 
         sql = mysql.pool.query(sql, inserts, function(err, results, fields){
             if(err){
