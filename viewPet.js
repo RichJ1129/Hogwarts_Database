@@ -3,7 +3,7 @@ module.exports = function(){
     var router = express.Router();
 
     function getPet(res, mysql, context, done){
-        var sql = "SELECT pet.pet_id as petID, pet.name as petName, species as petSpecies FROM pet" ;
+        var sql = "SELECT pet.pet_id as petID, name as petName, species as petSpecies FROM pet" ;
         mysql.pool.query(sql,
             function(error, results, fields){
                 if(error){
@@ -55,11 +55,11 @@ module.exports = function(){
 
 
     router.put('/:id', function(req, res){
-        console.log(req.body);
-
         var mysql = req.app.get('mysql');
+        console.log(req.body)
+        console.log(req.params.id)
         var sql = "UPDATE pet SET name=?, species=? WHERE pet_id=?";
-        var inserts = [req.body.petName, req.body.petSpecies, req.params.petID];
+        var inserts = [req.body.petName, req.body.petSpecies, req.params.id];
         console.log(inserts);
 
         sql = mysql.pool.query(sql, inserts, function(err, result, fields){
@@ -81,10 +81,9 @@ module.exports = function(){
         context.jsscripts = [ "updatePet.js"];
         var mysql = req.app.get('mysql');
         getOnePet(res, mysql, context, req.params.id, complete);
-        getPet(res,mysql,context,complete);
         function complete(){
             callbackCount++;
-            if(callbackCount >= 2){
+            if(callbackCount >= 1){
                 res.render('updatePet', context);
             }
 
