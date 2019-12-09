@@ -3,7 +3,7 @@ module.exports = function(){
     var router = express.Router();
 
     function getPet(res, mysql, context, done){
-        var sql = "SELECT pet.pet_id as petID, name as petName, species as petSpecies FROM pet;" ;
+        var sql = "SELECT pet.pet_id as petID, name as petName, species as petSpecies FROM pet WHERE pet.pet_id != 999;" ;
         mysql.pool.query(sql,
             function(error, results, fields){
                 if(error){
