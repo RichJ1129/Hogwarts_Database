@@ -1,8 +1,7 @@
-function deleteStudentFromClass(sID, cID){
+function deleteSFromC(sID, cID){
     console.log(sID);
-    console.log(cID);
     $.ajax({
-        url: cID + '_' + sID,
+        url: "/classEnrollment/" + cID + '/_/' + sID,
         type: 'DELETE',
         success: function(result){
             window.location.reload(true);

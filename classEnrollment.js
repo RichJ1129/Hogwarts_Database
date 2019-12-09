@@ -3,7 +3,7 @@ module.exports = function(){
     var router = express.Router();
 
     function getStudentByClass(req, res, mysql, context, done){
-        var sql = "SELECT student.first_name as fname, student.last_name as lname, class.name as cName, professor.last_name as professor FROM student_class\n" +
+        var sql = "SELECT student.first_name as fname, student.last_name as lname, class.name as cName, professor.last_name as professor, student_class.student as sID, student_class.class as cID FROM student_class\n" +
             "JOIN student ON student_class.student = student.student_id\n" +
             "JOIN class ON student_class.class = class.class_id\n" +
             "JOIN professor ON class.professor = professor.professor_id WHERE student_class.class = ?;";
@@ -23,7 +23,7 @@ module.exports = function(){
     }
 
     function getAllClasses(res, mysql, context, done){
-        var sql = "SELECT student.first_name as fname, student.last_name as lname, class.name as cName, professor.last_name as professor FROM student_class\n" +
+        var sql = "SELECT student.first_name as fname, student.last_name as lname, class.name as cName, professor.last_name as professor, student_class.student as sID, student_class.class as cID FROM student_class\n" +
             "JOIN student ON student_class.student = student.student_id\n" +
             "JOIN class ON student_class.class = class.class_id\n" +
             "JOIN professor ON class.professor = professor.professor_id;";
@@ -71,7 +71,8 @@ module.exports = function(){
     });
 
     router.delete('/:cID/_/:sID', function(req, res){
-        console.log(req.params.sID);
+        console.log("You are here");
+
         var mysql = req.app.get('mysql');
         var sql = "DELETE FROM student_class WHERE student_class.student = ? AND student_class.class = ?;";
         var inserts = [req.params.sID, req.params.cID];
