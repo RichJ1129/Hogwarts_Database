@@ -40,7 +40,7 @@ module.exports = function(){
         console.log("HI");
         var callbackCount = 0;
         var context = { title: 'Hogwart\'s HeadMaster Database' };
-        context.jsscripts = ["filterClass.js"];
+        context.jsscripts = ["filterClass.js", "deleteStudentFromClass.js"];
         var mysql = req.app.get('mysql');
         getStudentByClass(req,res, mysql, context, done);
         getClasses(res, mysql, context, done);
@@ -53,16 +53,38 @@ module.exports = function(){
         }
     });
 
+    router.delete('/:cID/_/:sID', function(req, res){
+        console.log(req.params.sID);
+        var mysql = req.app.get('mysql');
+        var sql = "DELETE FROM student_class WHERE student_class.student = ? AND student_class.class = ?";
+        var inserts = [req.params.sID, req.params.cID];
+        console.log(inserts);
+
+        sql = mysql.pool.query(sql, inserts, function(err, result, fields){
+            if(err){
+                console.log(err);
+                res.write(JSON.stringify(err));
+                res.status(400);
+                res.end();
+            }else{
+                res.status(202);
+                console.log("DELETE CONFIRMED");
+                res.end();
+            }
+        });
+    });
+
 
     router.get('/', function(req, res){
         var callbackCount = 0;
         var context = { title: 'Hogwart\'s HeadMaster Database' };
-        context.jsscripts = ["filterClass.js"];
+        context.jsscripts = ["filterClass.js", "deleteStudentFromClass.js"];
         var mysql = req.app.get('mysql');
         getClasses(res, mysql, context, done);
+        getStudentByClass(req,res, mysql, context, done);
         function done(){
             callbackCount++;
-            if(callbackCount >= 1){
+            if(callbackCount >= 2){
                 res.render('classEnrollment',context);
             }
         }});
