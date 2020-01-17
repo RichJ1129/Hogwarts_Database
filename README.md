@@ -1,4 +1,4 @@
-# HP School DataBase
+# HP School Database
 ### Created by Richard Joseph and Evan Speciale
 #### Status: Complete
 ##### URL: https://cs-340-fp.herokuapp.com/
